@@ -18,7 +18,7 @@
     <script type="text/javascript">
         function executeButtonClicked() {
             window.open('/TestDataGenerator101/queryExecution/execute?domain='
-                    +document.getElementById('domainList').value, '_self')
+                    +document.getElementById('selectedDomain').innerHTML+'&query='+document.getElementById('queryInput').value, '_self')
         }
     </script>
 
@@ -86,7 +86,7 @@
             <g:each in="${tableData}" var="record">
                 <tr>
                     <g:each in="${record}" var="fieldValue">
-                        <td>${fieldValue.value}</td>
+                        <td>${fieldValue}</td>
                     </g:each>
                 </tr>
             </g:each>
@@ -96,6 +96,12 @@
         </div>
     </div>
 </div>
+
+<!-- Clumsy workaround for accessing grails variables in javascript -->
+<div style="display: none">
+    <span id="selectedDomain">${domain}</span>
+</div>
+<!-- I'm not proud of this :( -->
 </body>
 </html>
 
