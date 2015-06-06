@@ -1,6 +1,7 @@
 package com.deerwalk.testdatagenerator
 
-import java.nio.file.Path
+import com.major.antlrTest.MyExprTest
+//import com.opencsv.CSVReader
 
 
 class QueryExecutionController {
@@ -9,33 +10,37 @@ class QueryExecutionController {
 
     def execute(String domain) {
 
-        Path outputPath
+        int outputPath = 8;
         MyExprTest myExprTest = new MyExprTest()
-        //try {
-            outputPath = myExprTest.executeQuery("table_name1.name=\"A.*\"")
-        //} catch (Exception ex) {
-        //    ex.printStackTrace();
-        //    throw ex;s
-        //}
+        List allEntries
+        try {
+            myExprTest.executeQuery("table_name1.name=\"A.*\" AND table_name1.id<50")
+//            CSVReader csvReader = new CSVReader(new FileReader("src/main/resources/output/finalOutput.csv"))
+//            allEntries = csvReader.readAll();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            //throw ex;
+        }
 
         def Aito = outputPath.toString();
-        def res1 = [name:Aito, position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"]
-        def res2 = [name:"Bito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"]
-        def res3 = [name:"Cito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"]
-        def res4 = [name:"Dito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"]
-        def res5 = [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"]
-        def res6 = [[name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
-                    [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1300.00"]]
+        def fieldNames = ['Name', 'Position', 'Office', 'Age', 'Salary'];
+        def res = [[name:Aito, position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Bito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Cito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Dito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   /*[name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1200.00"],*/
+                   [name:"Eito", position:"Flight Attendant", office:"lol", age:"35", salary: "\$1300.00"]]
 
-        [domain: domain, results: [res1, res2, res3, res4, res5] + res6]
+        [domain: domain, fieldNames: fieldNames, tableData: res]
     }
 }

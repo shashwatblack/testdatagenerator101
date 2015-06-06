@@ -68,32 +68,26 @@
                 <table id="resultTable" class="display" cellspacing="0" style="width:100%">
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Salary</th>
+                <g:each in="${fieldNames}" var="fieldName">
+                    <th>${fieldName}</th>
+                </g:each>
             </tr>
             </thead>
 
             <tfoot>
             <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Salary</th>
+                <g:each in="${fieldNames}" var="fieldName">
+                    <th>${fieldName}</th>
+                </g:each>
             </tr>
             </tfoot>
 
             <tbody>
-            <g:each in="${results}" var="result">
+            <g:each in="${tableData}" var="record">
                 <tr>
-                    <td>${result.name}</td>
-                    <td>${result.position}</td>
-                    <td>${result.office}</td>
-                    <td>${result.age}</td>
-                    <td>${result.salary}</td>
+                    <g:each in="${record}" var="fieldValue">
+                        <td>${fieldValue.value}</td>
+                    </g:each>
                 </tr>
             </g:each>
             </tbody>

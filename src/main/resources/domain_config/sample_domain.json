@@ -1,0 +1,41 @@
+{
+  "table_name1": {
+    "id": {
+      "type": "integer",
+      "unique": "true",
+      "autoincrement": "true",
+      "upper_range":"1000",
+      "lower_range":"1"
+    },
+    "name": {
+      "type": "string",
+      "source": "src/main/resources/name.csv"
+    },
+    "Age2": {
+      "type": "integer",
+      "upper_range": "50",
+      "lower_range": "20"
+    },
+    "Age1": {
+      "type": "integer",
+      "relation": ">Age2",
+      "uppper_range":"100",
+      "lower_range":"25"
+    },
+    "gender":{
+      "type":"string",
+      "source":"src/main/resources/gender.txt"
+
+    }
+  }
+
+  "table_name2": {
+    "name": {
+      "type": "string",
+      "source": "table1 id"
+    },,
+
+
+  }
+}
+

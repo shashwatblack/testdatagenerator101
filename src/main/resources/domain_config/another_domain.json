@@ -1,0 +1,27 @@
+{
+  "table_name1": {
+    "name": {
+      "type": "String",
+      "source": "src/main/resources/name.csv",
+      "unique": "true"
+    },
+    "caste": {
+      "type": "String",
+      "source": "src/main/resources/last.csv"
+    },
+    "age": {
+      "type": "integer",
+        "lower_range": "1",
+        "upper_range": "125"
+    },
+    "Address": {
+      "type": "String",
+      "source": "src/main/resources/address.csv"
+    },
+    "DOB": {
+      "type": "date",
+      "upper_range": "21/12/2007",
+      "lower_range": "21/10/1995"
+    }
+  }
+}
