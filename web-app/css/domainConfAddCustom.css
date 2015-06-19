@@ -1,0 +1,22 @@
+@media (min-width: 768px) {
+        .selectButtonDiv {
+            margin-left: 0px
+    }
+}
+@media (max-width: 768px) {
+        .selectButtonDiv {
+            margin-top: 20px
+    }
+}
+
+.form-group > .input-group {
+	width: 70%
+}
+
+.invisible {
+	display: none;
+}
+
+.visible {
+	display: block;
+}

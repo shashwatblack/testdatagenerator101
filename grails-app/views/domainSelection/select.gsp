@@ -10,27 +10,41 @@
 <head>
     <title>Domain Selection</title>
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link  href="../css/jquery.dataTables.css" type="text/css" rel="stylesheet" >
+    <link href="../css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
 
     <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap-select.min.js"></script>
 
     <script type="text/javascript">
         function nextButtonClicked() {
             window.open('/TestDataGenerator101/queryExecution/execute?domain='
                     +document.getElementById('domainList').value, '_self')
-        }
+        };
+
+        $(document).ready(function() {
+            $('.selectpicker').selectpicker();
+
+        });
     </script>
 
 </head>
 
-<body background="../images/bgimage.jpg">
+<body style="background-image: url(../images/bgimage.jpg);
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+background-position: top center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed;">
+
 <div  style="min-height: 100%; min-height: 100vh; display: flex; align-items: center; margin:0px">
 <div class="container" style="width: 100%">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3
                     col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1" align="center">
             <div class="input-group" style="width:100%">
-                <g:select class="input-lg" style="width:90%; text-indent:0%" name="domainList" id="domainList" from="['Office', 'Medicine', 'School']" value="${defaultDomain}" />
+                <g:select class="selectpicker" style="width:90%; text-indent:0%" name="domainList" id="domainList" from="${domainNameList}" value="${defaultDomain}" />
             </div>
         </div>
     </div>

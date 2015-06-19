@@ -33,4 +33,8 @@ class QueryExecutionController {
         //println(allEntries);
         [domain: domain, defaultQuery: defaultQuery, fieldNames: fieldNames, tableData: allEntries.toArray()]
     }
+
+    def query_output() {
+        render(file: "src/main/resources/output/finalOutput.csv", contentType: 'text/csv', fileName: "query_output.csv")
+    }
 }

@@ -1,0 +1,100 @@
+<html>
+<head>
+    <title>Domain Configuration</title>
+
+    <script src="../../../web-app/js/jquery-1.11.1.min.js"></script>
+
+    <link href="../../../web-app/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../../../web-app/css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
+    <link href="../../../web-app/css/AdminLTE.css" type="text/css" rel="stylesheet">
+    <link href="../../../web-app/css/domainConfAddCustom.css" type="text/css" rel="stylesheet">
+
+    <script src="../../../web-app/js/bootstrap.min.js"></script>
+    <script src="../../../web-app/js/bootstrap-select.min.js"></script>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <script src="../../../web-app/js/custom.js"></script>
+
+    <script type="text/javascript">
+        function selectButtonClicked() {
+            //some code here
+        }
+    </script>
+
+</head>
+
+<body style="background-image: url(../../../web-app/images/bgimage.jpg);
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+background-position: top center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed;">
+
+<div  style="min-height: 100%; min-height: 100vh; margin-top:40px">
+    <div class="container" style="width: 100%">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1
+                    col-sm-5 col-xs-10 col-xs-offset-1" align="center">
+                <div class="input-group" style="width:90%">
+                    <select class="input-sm" style="width:100%; text-indent:0%" name="domainList" id="domainList" from="${domainNameList}" value="${defaultDomain}" ></select>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-5
+                    col-sm-5 col-xs-10 col-xs-offset-1 selectButtonDiv" align="center">
+                <button type="button" class="btn btn-primary btn-sm" style="width:90%" name="selectButton" onclick="selectButtonClicked()">
+                    Select
+                </button>
+            </div>
+        </div>
+        <div class="row" style="margin-top:30px">
+        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1
+                    col-sm-10 col-xs-10 col-xs-offset-1">
+                <div class="box box-primary" style="width: 90%; margin-left:5%; padding:2%">
+                <div class="box-header">
+                  <h3 class="box-title">Table Name %</h3>
+                </div>
+                <div class="box-body">
+                  <!-- Date range -->
+                  <div class="form-group">
+                    <label>Field Name:</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control pull-right" id="fieldName1"/>
+                    </div><!-- /.input group -->
+                  </div><!-- /.form group -->
+
+                  <!-- Date and time range -->
+                  <div class="form-group">
+                      <label>Type:</label>
+                      <div class="input-group">
+                          <select class="selectpicker" onchange="">
+                              <option value="string">String</option>
+                              <option value="integer">Integer</option>
+                              <option value="float">Float</option>
+                              <option value="date">Date</option>
+                            </select>
+                      </div>
+                  </div>
+
+                  <div class="form-group" style="display: none">
+                      <label>Range:</label>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label>Source:</label>
+                    <div class="input-group">
+                      <input type="text" class="form-control pull-right" id="source1"/>
+                    </div><!-- /.input group -->
+                  </div><!-- /.form group -->
+
+
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+              </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

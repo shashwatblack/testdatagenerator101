@@ -1,0 +1,6 @@
+#save_icon {
+    width: 14px; height: 14px;
+    background: url('../images/save_icon.png') no-repeat left top;
+    margin-bottom: 4px; margin-left: 14px;
+}
+#save_icon:hover { background-position: -14px 0px }

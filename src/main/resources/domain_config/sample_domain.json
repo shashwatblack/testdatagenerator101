@@ -27,15 +27,13 @@
       "source":"src/main/resources/gender.txt"
 
     }
-  }
+  },
 
   "table_name2": {
     "name": {
       "type": "string",
       "source": "table1 id"
-    },,
-
-
+    }
   }
 }
 

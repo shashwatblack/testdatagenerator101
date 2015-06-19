@@ -2,15 +2,15 @@ package com.deerwalk.testdatagenerator
 
 import com.major.antlrTest.domainConfiguration.Utils
 
-class DomainSelectionController {
+class DomainConfController {
 
     def index() {
-        redirect(action: 'select')
+        redirect(action: 'add')
     }
 
-    def select() {
+    def add() {
         Utils utils = new Utils()
         List <String> domainNameList = utils.domainNameList
-        [domainNameList: domainNameList, defaultDomain: domainNameList[-1]]
+        [domainNameList: domainNameList, defaultDomain: domainNameList[0]]
     }
 }
