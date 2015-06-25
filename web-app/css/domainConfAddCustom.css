@@ -1,22 +1,62 @@
 @media (min-width: 768px) {
-        .selectButtonDiv {
-            margin-left: 0px
+    .selectButtonDiv {
+        margin-left: 0px
     }
 }
+
 @media (max-width: 768px) {
-        .selectButtonDiv {
-            margin-top: 20px
+    .selectButtonDiv {
+        margin-top: 20px
     }
+}
+
+@media only screen and (max-width: 450px) {
+    .container {
+        width: 450px;
+    }
+}
+
+@media only screen and (min-width: 450px) {
+    .container {
+        width: 100%;
+    }
+}
+
+body {
+    background-image: url('../images/bgimage.jpg');
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed;
+    display: block;
+}
+
+.box {
+    border-bottom: 3px solid #3c8dbc;
+    background-color: #fefefe;
 }
 
 .form-group > .input-group {
-	width: 70%
+    width: 70%
 }
 
 .invisible {
-	display: none;
+    display: none;
 }
 
 .visible {
-	display: block;
+    display: block;
+}
+
+.chkbox-label {
+    padding-left: 10px;
+    padding-right: 30px;
+    font-style: normal;
+}
+
+.btn,
+.btn-warning {
+    border-radius: 0px;
 }

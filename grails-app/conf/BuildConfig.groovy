@@ -52,6 +52,7 @@ grails.project.dependency.resolution = {
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         compile 'com.opencsv:opencsv:3.4'
+        compile 'com.googlecode.json-simple:json-simple:1.1.1'
     }
 
     plugins {

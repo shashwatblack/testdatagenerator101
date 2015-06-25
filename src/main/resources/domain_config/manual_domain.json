@@ -1,0 +1,172 @@
+[
+    {
+        "name": "table_name1",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "src/main/resources/name.csv",
+                "type": "String",
+                "field_name": "name"
+            },
+            {
+                "source": "src/main/resources/last.csv",
+                "type": "String",
+                "field_name": "caste"
+            },
+            {
+                "upper_range": "125",
+                "type": "integer",
+                "field_name": "age",
+                "lower_range": "1"
+            },
+            {
+                "source": "src/main/resources/address.csv",
+                "type": "String",
+                "field_name": "Address"
+            },
+            {
+                "upper_range": "21/12/2007",
+                "type": "date",
+                "field_name": "DOB",
+                "lower_range": "21/10/1995"
+            }
+        ]
+    },
+    {
+        "name": "table_name2",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "src/main/resources/name.csv",
+                "type": "String",
+                "field_name": "name"
+            },
+            {
+                "field-name": "age",
+                "upper_range": "200",
+                "type": "integer",
+                "lower_range": "100"
+            }
+        ]
+    },
+    {
+        "name": "musa",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "/sreing/",
+                "type": "string",
+                "field_name": "head"
+            },
+            {
+                "upper_range": "888",
+                "autoincrement": "true",
+                "type": "float",
+                "field_name": "body",
+                "lower_range": "67"
+            },
+            {
+                "upper_range": "date",
+                "type": "date",
+                "field_name": "",
+                "lower_range": "date"
+            }
+        ]
+    },
+    {
+        "name": "musa",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "a",
+                "type": "string",
+                "field_name": "a"
+            },
+            {
+                "upper_range": "4",
+                "autoincrement": "true",
+                "type": "integer",
+                "field_name": "s",
+                "lower_range": "1"
+            },
+            {
+                "upper_range": "23",
+                "type": "date",
+                "field_name": "d",
+                "lower_range": "2"
+            }
+        ]
+    },
+    {
+        "name": "musa",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "a",
+                "type": "string",
+                "field_name": "a"
+            },
+            {
+                "upper_range": "4",
+                "autoincrement": "true",
+                "type": "integer",
+                "field_name": "s",
+                "lower_range": "1"
+            },
+            {
+                "upper_range": "23",
+                "type": "date",
+                "field_name": "d",
+                "lower_range": "2"
+            }
+        ]
+    },
+    {
+        "name": "musa",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "a",
+                "type": "string",
+                "field_name": "a"
+            },
+            {
+                "upper_range": "4",
+                "autoincrement": "true",
+                "type": "integer",
+                "field_name": "s",
+                "lower_range": "1"
+            },
+            {
+                "upper_range": "23",
+                "type": "date",
+                "field_name": "d",
+                "lower_range": "2"
+            }
+        ]
+    },
+    {
+        "name": "musa",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "a",
+                "type": "string",
+                "field_name": "a"
+            },
+            {
+                "upper_range": "4",
+                "autoincrement": "true",
+                "type": "integer",
+                "field_name": "s",
+                "lower_range": "1"
+            },
+            {
+                "upper_range": "23",
+                "type": "date",
+                "field_name": "d",
+                "lower_range": "2"
+            }
+        ]
+    }
+]
