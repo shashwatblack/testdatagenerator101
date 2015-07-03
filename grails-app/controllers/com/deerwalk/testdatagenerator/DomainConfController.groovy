@@ -1,6 +1,7 @@
 package com.deerwalk.testdatagenerator
 
 import com.major.antlrTest.domainConfiguration.Utils
+import grails.converters.JSON
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
@@ -23,6 +24,14 @@ class DomainConfController {
 
     def displayPOSTvariables() {
         render(params)
+    }
+
+    def addNewDomain(String newDomainName) {
+        newDomainName = 'src/main/resources/domain_config/' + newDomainName
+        print(newDomainName)
+        boolean success = new File(newDomainName).createNewFile()
+        print(success)
+        render {[response: success]} as JSON
     }
 
     def saveDomainConf() {
@@ -76,6 +85,11 @@ class DomainConfController {
         }
         //alert user
         //redirect(uri: "#")
+    }
+
+    def serializeDomains() {
+        
+        render 'done'
     }
 
 }

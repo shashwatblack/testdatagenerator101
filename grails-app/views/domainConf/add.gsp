@@ -21,8 +21,27 @@
     <script src="../plugins/iCheck/icheck.js"></script>
     <script src="../js/custom.js"></script>
     <script type="text/javascript">
-        function selectButtonClicked() {
-            //some code here
+        function addDomainButtonClicked() {
+            var newDomainName = prompt("Please enter the new Domain Name", "new_domain");
+            if (newDomainName != null) {
+                newDomainName = newDomainName + ".json";
+                $.ajax ({
+                    type: 'POST',
+                    url: '/TestDataGenerator101/domainConf/addNewDomain',
+                    data: {newDomainName: newDomainName},
+                    success: (function(response) {
+                        if (response=='false') {
+                            alert('File already exists.')
+                        } else {
+                            alert('File successfully created.')
+                        }
+                    }),
+                    error: (function(){
+                        alert('Some error occurred. Cannot execute ajax call.')
+                    })
+                });
+
+            }
         }
     </script>
 </head>
@@ -38,8 +57,8 @@
                     <g:select class="selectpicker" style="width:100%; text-indent:0%" name="domainList" id="domainList" from="${domainNameList}" value="${defaultDomain}"></g:select>
                 </div>
                 <div class="input-group pull-right" style="width:50%; padding-left:10px;">
-                    <button type="button" class="btn btn-primary" style="width:100%" name="selectButton" onclick="selectButtonClicked()">
-                        Select
+                    <button type="button" class="btn btn-primary" style="width:100%" name="addDomainButton" onclick="addDomainButtonClicked()">
+                        Add Domain
                     </button>
                 </div>
             </div>

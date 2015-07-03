@@ -4,12 +4,12 @@
         "fields": [
             {
                 "unique": "true",
-                "source": "src/main/resources/name.csv",
+                "source": "src\/main\/resources\/name.csv",
                 "type": "String",
                 "field_name": "name"
             },
             {
-                "source": "src/main/resources/last.csv",
+                "source": "src\/main\/resources\/last.csv",
                 "type": "String",
                 "field_name": "caste"
             },
@@ -20,15 +20,15 @@
                 "lower_range": "1"
             },
             {
-                "source": "src/main/resources/address.csv",
+                "source": "src\/main\/resources\/address.csv",
                 "type": "String",
                 "field_name": "Address"
             },
             {
-                "upper_range": "21/12/2007",
+                "upper_range": "21\/12\/2007",
                 "type": "date",
                 "field_name": "DOB",
-                "lower_range": "21/10/1995"
+                "lower_range": "21\/10\/1995"
             }
         ]
     },
@@ -37,7 +37,7 @@
         "fields": [
             {
                 "unique": "true",
-                "source": "src/main/resources/name.csv",
+                "source": "src\/main\/resources\/name.csv",
                 "type": "String",
                 "field_name": "name"
             },
@@ -54,7 +54,7 @@
         "fields": [
             {
                 "unique": "true",
-                "source": "/sreing/",
+                "source": "\/sreing\/",
                 "type": "string",
                 "field_name": "head"
             },
@@ -166,6 +166,46 @@
                 "type": "date",
                 "field_name": "d",
                 "lower_range": "2"
+            }
+        ]
+    },
+    {
+        "name": "",
+        "fields": [
+            {
+                "upper_range": "10",
+                "type": "float",
+                "field_name": "ye",
+                "lower_range": "1"
+            }
+        ]
+    },
+    {
+        "name": "naam",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "df",
+                "type": "string",
+                "field_name": "d"
+            }
+        ]
+    },
+    {
+        "name": "table1",
+        "fields": [
+            {
+                "unique": "true",
+                "source": "d",
+                "type": "string",
+                "field_name": "d"
+            },
+            {
+                "upper_range": "100",
+                "autoincrement": "true",
+                "type": "integer",
+                "field_name": "g",
+                "lower_range": "1"
             }
         ]
     }
