@@ -1,39 +1,71 @@
-{
-  "table_name1": {
-    "id": {
-      "type": "integer",
-      "unique": "true",
-      "autoincrement": "true",
-      "upper_range":"1000",
-      "lower_range":"1"
+[
+    {
+        "name": "table_name1",
+        "fields": [
+            {
+                "field_name": "name",
+                "type": "String",
+                "source": "{amit, dipesh, dinesh, dipak, anita, deepika, dipti, dinank}",
+                "unique": "false"
+            },
+            {
+                "field_name": "id",
+                "type": "integer",
+                "autoincrement":"true",
+                "unique": "true"
+            },
+            {
+                "field_name": "caste",
+                "type": "String",
+                "source": "src/main/resources/last.csv"
+            },
+            {
+                "field_name": "age",
+                "type": "integer",
+                "lower_range": "1",
+                "upper_range": "125"
+            },
+            {
+                "field_name": "Address",
+                "type": "String",
+                "source": "src/main/resources/address.csv"
+            },
+            {
+                "field_name": "DOB",
+                "type": "date",
+                "upper_range": "2055/12/12",
+                "lower_range": "1995/10/21"
+            },
+            {
+                "field_name": "salary",
+                "type": "double",
+                "upper_range": "1000000",
+                "lower_range": "5000"
+            }
+        ]
     },
-    "name": {
-      "type": "string",
-      "source": "src/main/resources/name.csv"
-    },
-    "Age2": {
-      "type": "integer",
-      "upper_range": "50",
-      "lower_range": "20"
-    },
-    "Age1": {
-      "type": "integer",
-      "relation": ">Age2",
-      "uppper_range":"100",
-      "lower_range":"25"
-    },
-    "gender":{
-      "type":"string",
-      "source":"src/main/resources/gender.txt"
+    {
+        "name": "table_name2",
+        "source": "src/main/resources/table_name2.csv",
+        "fields": [
+            {
+                "field_name": "name1",
+                "type": "String",
+                "index":"0"
 
+            },
+            {
+                "field_name": "caste1",
+                "type": "String",
+                "index":"1"
+
+            },
+            {
+                "field_name": "salary",
+                "type": "double",
+                "lower_range": "100.00",
+                "upper_range": "200000.55"
+            }
+        ]
     }
-  },
-
-  "table_name2": {
-    "name": {
-      "type": "string",
-      "source": "table1 id"
-    }
-  }
-}
-
+]

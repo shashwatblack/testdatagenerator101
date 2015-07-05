@@ -1,27 +1,52 @@
-{
-  "table_name1": {
-    "name": {
-      "type": "String",
-      "source": "src/main/resources/name.csv",
-      "unique": "true"
+[
+    {
+        "name": "Data1",
+        "fields": [
+            {
+                "field_name": "name",
+                "type": "String",
+                "source": "src/main/resources/name.csv",
+                "unique": "true"
+            },
+            {
+                "field_name": "caste",
+                "type": "String",
+                "source": "src/main/resources/last.csv"
+            },
+            {
+                "field_name": "age",
+                "type": "integer",
+                "lower_range": "1",
+                "upper_range": "125"
+            },
+            {
+                "field_name": "Address",
+                "type": "String",
+                "source": "src/main/resources/address.csv"
+            },
+            {
+                "field_name": "DOB",
+                "type": "date",
+                "upper_range": "2055/12/12",
+                "lower_range": "1995/10/21"
+            }
+        ]
     },
-    "caste": {
-      "type": "String",
-      "source": "src/main/resources/last.csv"
-    },
-    "age": {
-      "type": "integer",
-        "lower_range": "1",
-        "upper_range": "125"
-    },
-    "Address": {
-      "type": "String",
-      "source": "src/main/resources/address.csv"
-    },
-    "DOB": {
-      "type": "date",
-      "upper_range": "21/12/2007",
-      "lower_range": "21/10/1995"
+    {
+        "name": "table_name2",
+        "fields": [
+            {
+                "field_name": "name",
+                "type": "String",
+                "source": "src/main/resources/name.csv",
+                "unique": "true"
+            },
+            {
+                "field_name": "salary",
+                "type": "double",
+                "lower_range": "100.00",
+                "upper_range": "200000.55"
+            }
+        ]
     }
-  }
-}
+]

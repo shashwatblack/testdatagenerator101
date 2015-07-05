@@ -53,6 +53,7 @@ grails.project.dependency.resolution = {
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
         compile 'com.opencsv:opencsv:3.4'
         compile 'com.googlecode.json-simple:json-simple:1.1.1'
+        compile 'mysql:mysql-connector-java:5.1.35'
     }
 
     plugins {

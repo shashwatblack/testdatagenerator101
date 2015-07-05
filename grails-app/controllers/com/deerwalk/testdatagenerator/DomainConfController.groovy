@@ -88,7 +88,6 @@ class DomainConfController {
     }
 
     def serializeDomains() {
-        
         render 'done'
     }
 
