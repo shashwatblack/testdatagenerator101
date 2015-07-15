@@ -12,9 +12,9 @@ import java.util.Date;
 import java.util.List;
 
 public class SerializeJavaObject_MySQL {
-    static final String WRITE_OBJECT_SQL = "INSERT INTO java_objects(name, object_value) VALUES (?, ?)";
+    static final String WRITE_OBJECT_SQL = "INSERT INTO javaobj (name, object_value) VALUES (?, ?)";
 
-    static final String READ_OBJECT_SQL = "SELECT object_value FROM java_objects WHERE id = ?";
+    static final String READ_OBJECT_SQL = "SELECT object_value FROM javaobj WHERE id = ?";
 
     public static Connection getConnection() throws Exception {
         String driver = "org.gjt.mm.mysql.Driver";
@@ -33,13 +33,16 @@ public class SerializeJavaObject_MySQL {
         // set input parameters
         pstmt.setString(1, className);
         pstmt.setObject(2, object);
-        pstmt.executeUpdate();
+        pstmt.execute();
 
         // get the generated key for the id
         ResultSet rs = pstmt.getGeneratedKeys();
         int id = -1;
-        if (rs.next()) {
-            id = rs.getInt(1);
+//        if (rs.next()) {
+//            id = rs.getInt(1);
+//        }
+        while (rs.next()) {
+            id = (rs.getInt(1));
         }
 
         rs.close();
