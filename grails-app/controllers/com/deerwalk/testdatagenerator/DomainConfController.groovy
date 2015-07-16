@@ -35,7 +35,6 @@ class DomainConfController {
     }
 
     def saveDomainConf() {
-        render("processing.. wait")
         if (! params.containsKey("domainList")) return
         String selectedDomain = "manual_domain"//params.get("domainList")
         JSONParser jsonParser = new JSONParser()
@@ -73,7 +72,6 @@ class DomainConfController {
 
             //append new table to current domain data
             jsonArray.add(newObject);
-            render(jsonArray.toJSONString())
             //write jsonArray back to file
             FileWriter fileWriter = new FileWriter("src/main/resources/domain_config/" + selectedDomain + ".json")
             fileWriter.write(jsonArray.toJSONString())
@@ -83,12 +81,9 @@ class DomainConfController {
         } catch (Exception ex) {
             ex.printStackTrace()
         }
-        //alert user
-        //redirect(uri: "#")
-    }
 
-    def serializeDomains() {
-        render 'done'
+        render("Processing complete. Your Domain has been updated.<br/><br/>")
+        render("<a href='/TestDataGenerator101/'>Go to Home</a>")
     }
 
 }

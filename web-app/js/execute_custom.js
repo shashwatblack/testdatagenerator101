@@ -1,50 +1,46 @@
 $(document).ready(function () {
-    var resultTable = $("#resultTable");
-    if (resultTable.length) {
-        resultTable.DataTable();
-        $('#tableNameListDiv').show();
-        $("#tableNameListDiv").change(function(event) { tableNameChanged(event) });
-    }
-    $("<a href='../queryExecution/query_output.csv'>" +
-        "<img id='save_icon' alt='Download' title='Download all as csv'/>" +
-        "</a>").insertAfter("#resultTable_next");
-    $('.selectpicker').selectpicker();
+    $("#tableList > option").each(function () {
+        console.log(this.text);
+        var resultTable = $("#resultTable_" + this.text);
+        if (resultTable) {
+            resultTable.DataTable();
+            $("<a href='../queryExecution/query_output.csv?fileName=" + this.text + "'>" +
+                "<img id='save_icon' alt='Download' title='Download all as csv'/>" +
+                "</a>").insertAfter("#resultTable_" + this.text + "_next");
 
-    resultTable.on('draw.dt', function () {
-        $("<a href='../queryExecution/query_output.csv'>" +
-            "<img id='save_icon' alt='Download' title='Download all as csv'/>" +
-            "</a>").insertAfter("#resultTable_next");
+            resultTable.on('draw.dt', function () {
+                $("<a href='../queryExecution/query_output.csv?fileName=" + this.text + "'>" +
+                    "<img id='save_icon' alt='Download' title='Download all as csv'/>" +
+                    "</a>").insertAfter("#resultTable_" + this.text + "_next");
+            });
+        }
     });
+    //show only one table
+    updateShowingTable()
+
+    //show dropdown list upon table drawing complete
+    $('#tableNameListDiv').show();
+    $("#tableNameListDiv").change(function (event) {
+        selectedTableChanged(event)
+    });
+
+    //make select tags beautiful
+    $('.selectpicker').selectpicker();
 });
 
-function tableNameChanged(event) {
-    //alert($(event.target.id).value());
-
-    var selectedType = ($("#tableNameListDiv option:selected").text());
-    alert(selectedType);
-    // now ajaxx
+function updateShowingTable() {
+    var selectedTable = ($("#tableNameListDiv option:selected").text());
+    $("#tableList > option").each(function () {
+        var resultTable = $("#resultTable_" + this.text + "_wrapper");
+        if (this.text == selectedTable) {
+            resultTable.show();
+        } else {
+            resultTable.hide();
+        }
+    });
 
 }
 
-function addDomainButtonClicked() {
-    var newDomainName = prompt("Please enter the new Domain Name", "new_domain");
-    if (newDomainName != null) {
-        newDomainName = newDomainName + ".json";
-        $.ajax({
-            type: 'POST',
-            url: '/TestDataGenerator101/domainConf/addNewDomain',
-            data: {newDomainName: newDomainName},
-            success: (function (response) {
-                if (response == 'false') {
-                    alert('File already exists.')
-                } else {
-                    alert('File successfully created.')
-                }
-            }),
-            error: (function () {
-                alert('Some error occurred. Cannot execute ajax call.')
-            })
-        });
-
-    }
+function selectedTableChanged(event) {
+    updateShowingTable();
 }

@@ -34,6 +34,7 @@
                             alert('File already exists.')
                         } else {
                             alert('File successfully created.')
+                            $()
                         }
                     }),
                     error: (function(){
@@ -54,7 +55,8 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1
     col-sm-10 col-xs-10 col-xs-offset-1" style="padding: 2px">
                 <div class="input-group pull-left" style="width:50%; padding-right:10px;">
-                    <g:select class="selectpicker" style="width:100%; text-indent:0%" name="domainList" id="domainList" from="${domainNameList}" value="${defaultDomain}"></g:select>
+                    <g:select class="selectpicker" style="width:100%; text-indent:0%" name="domainList"
+                              id="domainList" from="${domainNameList}" value="${defaultDomain}"></g:select>
                 </div>
                 <div class="input-group pull-right" style="width:50%; padding-left:10px;">
                     <button type="button" class="btn btn-primary" style="width:100%" name="addDomainButton" onclick="addDomainButtonClicked()">
