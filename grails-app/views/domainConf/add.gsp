@@ -34,7 +34,8 @@
                             alert('File already exists.')
                         } else {
                             alert('File successfully created.')
-                            $()
+                            ${domainNameList.add('string')}
+                            $('.selectpicker').selectpicker('refresh');
                         }
                     }),
                     error: (function(){
