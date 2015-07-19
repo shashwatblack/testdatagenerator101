@@ -51,7 +51,7 @@
 </head>
 
 <body>
-<div id="page-body" style="min-height: 100%; margin-top:30px; margin-bottom:15px;">
+<div id="page-body" style="min-height: 70%; margin-top:30px; margin-bottom:15px;">
     <div class="container">
         <form action="saveDomainConf" method="POST">
         <div class="row" style="width:90%; margin-left:5%">

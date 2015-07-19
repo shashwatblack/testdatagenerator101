@@ -13,13 +13,13 @@ $(document).ready(function () {
                     "<img id='save_icon' alt='Download' title='Download all as csv'/>" +
                     "</a>").insertAfter("#resultTable_" + this.text + "_next");
             });
+            $('#tableNameListDiv').show();
         }
     });
     //show only one table
     updateShowingTable()
 
     //show dropdown list upon table drawing complete
-    $('#tableNameListDiv').show();
     $("#tableNameListDiv").change(function (event) {
         selectedTableChanged(event)
     });

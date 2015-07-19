@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <meta name="layout" content="base"/>
     <title>Query Execution</title>
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
@@ -30,14 +31,8 @@
     </script>
 </head>
 
-<body style="background-image: url(../images/bgimage.jpg);
--moz-background-size: cover;
--webkit-background-size: cover;
-background-size: cover;
-background-position: top center !important;
-background-repeat: no-repeat !important;
-background-attachment: fixed;">
-<div style="min-height: 100%; min-height: 100vh; display: flex; align-items: center; margin:0px">
+<body>
+<div id="page-body" style="min-height: 70%; margin-top:40px; align-items: center;">
     <div class="container" style="width: 100%">
         <div class="row">
             <h1/>
