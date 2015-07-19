@@ -12,13 +12,26 @@
 		<link rel="shortcut icon" href="${assetPath(src: 'favicon.png')}" type="image/x-icon">
 		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
 		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
-  		<asset:stylesheet src="application.css"/>
+
+        <asset:stylesheet src="application.css"/>
 		<asset:javascript src="application.js"/>
 		<g:layoutHead/>
 	</head>
 	<body>
-		<div id="grailsLogo" role="banner"><asset:image src="banner-logo.png" alt="Test Data Generator"
+		<div id="tdgLogo" role="banner"><asset:image src="banner-logo.png" alt="Test Data Generator"
                                                         style="height:60px; padding:20px"/></div>
+    <nav class="navbar">
+        <div>
+            <div>
+                <ul class="nav" style="width:99%; height:36px">
+                    <li class="active"><a href="/TestDataGenerator101/">Home</a></li>
+                    <li><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
+                    <li><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
+                    <li><a href="#">Data Blinding</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 		<g:layoutBody/>
 		<div class="footer" role="contentinfo">
         Deerwalk Services Pvt. Ltd.

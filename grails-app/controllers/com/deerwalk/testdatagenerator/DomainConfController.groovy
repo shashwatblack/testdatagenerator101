@@ -81,9 +81,6 @@ class DomainConfController {
         } catch (Exception ex) {
             ex.printStackTrace()
         }
-
-        render("Processing complete. Your Domain has been updated.<br/><br/>")
-        render("<a href='/TestDataGenerator101/'>Go to Home</a>")
     }
 
 }

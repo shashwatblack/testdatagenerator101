@@ -8,6 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
+    <meta name="layout" content="base"/>
     <title>Domain Selection</title>
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
@@ -30,15 +31,9 @@
 
 </head>
 
-<body style="background-image: url(../images/bgimage.jpg);
--moz-background-size: cover;
--webkit-background-size: cover;
-background-size: cover;
-background-position: top center !important;
-background-repeat: no-repeat !important;
-background-attachment: fixed;">
+<body>
 
-<div  style="min-height: 100%; min-height: 100vh; display: flex; align-items: center; margin:0px">
+<div id="page-body" style="min-height: 70%; min-height: 70vh; display: flex; align-items: center; margin:0px">
 <div class="container" style="width: 100%">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3
@@ -54,7 +49,7 @@ background-attachment: fixed;">
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3
                     col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1" align="center">
-            <button type="button" class="btn btn-primary btn-lg" style="width:10px 0%" name="nextButton" onclick="nextButtonClicked()">
+            <button type="button" class="btn btn-primary btn-lg" style="width:100%" name="nextButton" onclick="nextButtonClicked()">
                 Next
             </button>
         </div>

@@ -9,20 +9,22 @@
 <html>
 
 <head>
+    <meta name="layout" content="base"/>
     <title>Domain Configuration</title>
-    <script src="../js/jquery-1.11.1.min.js"></script>
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
     <link href="../css/AdminLTE.css" type="text/css" rel="stylesheet">
     <link href="../css/domainConfAddCustom.css" type="text/css" rel="stylesheet">
     <link href="../plugins/iCheck/skins/square/blue.css" type="text/css" rel="stylesheet">
+
+    <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-select.min.js"></script>
     <script src="../plugins/iCheck/icheck.js"></script>
     <script src="../js/custom.js"></script>
     <script type="text/javascript">
-        function addDomainButtonClicked() {
-            var newDomainName = prompt("Please enter the new Domain Name", "new_domain");
+        function addDomain() {
+            var newDomainName = $("#new-domain-name").val();
             if (newDomainName != null) {
                 newDomainName = newDomainName + ".json";
                 $.ajax ({
@@ -49,7 +51,7 @@
 </head>
 
 <body>
-<div style="min-height: 100%; min-height: 100vh; margin-top:40px">
+<div id="page-body" style="min-height: 100%; margin-top:30px; margin-bottom:15px;">
     <div class="container">
         <form action="saveDomainConf" method="POST">
         <div class="row" style="width:90%; margin-left:5%">
@@ -60,9 +62,41 @@
                               id="domainList" from="${domainNameList}" value="${defaultDomain}"></g:select>
                 </div>
                 <div class="input-group pull-right" style="width:50%; padding-left:10px;">
-                    <button type="button" class="btn btn-primary" style="width:100%" name="addDomainButton" onclick="addDomainButtonClicked()">
-                        Add Domain
+                    <button type="button" class="btn btn-primary" style="width:30%; margin-right: 5%;" name="editDomainButton" onclick="editDomainButtonClicked()">
+                        Edit
                     </button>
+                    <button type="button" class="btn btn-danger" style="width:30%; margin-right: 5%;" name="deleteDomainButton" onclick="deleteDomainButtonClicked()">
+                        Delete
+                    </button>
+                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#addDomainModal" style="width:30%;"
+                            name="addDomainButton">
+                        Add
+                    </button>
+
+
+                    <!-- Modal -->
+                    <div id="addDomainModal" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Add a new Domain</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Enter the domain name</p>
+                                    <input type="text" class="form-control" id="new-domain-name" name="new-domain-name" style="width: 45%" />
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="addDomainModalCreateButton"
+                                    onclick="addDomain();">Create</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -133,13 +167,13 @@
                 <div class="box box-primary" id="my-box-footer" style="width: 90%; margin-left:5%; padding:2%">
                     <div class="box-footer">
                         <button type="button" class="btn btn-warning pull-left" id="add-field">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> <b>&nbsp;&nbsp;Add Field</b>
+                            <img src="../images/icons/plus-invert.png" alt="+" style="height:10px; margin-bottom: 3px;"/> <b>&nbsp;&nbsp;Add Field</b>
                         </button>
                         <button type="button" class="btn btn-danger pull-left" id="remove-field" style="margin-left: 10px" disabled="true">
-                            <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> <b>&nbsp;&nbsp;Remove Last Field</b>
+                            <img src="../images/icons/minus-invert.png" alt="-"  style="width:8px; margin-bottom: 3px;"/> <b>&nbsp;&nbsp;Remove Last Field</b>
                         </button>
                         <button type="submit" class="btn btn-success pull-right" id="save-domain-conf">
-                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> <b>&nbsp;&nbsp;Save Configuration</b>
+                            <img src="../images/icons/save-invert.png" alt="Save"  style="height:10px; margin-bottom: 3px;"/> <b>&nbsp;&nbsp;Save Configuration</b>
                         </button>
                     </div>
                 </div>
