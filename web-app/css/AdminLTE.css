@@ -10,6 +10,7 @@
  * Core: Genral Layout Style
  * -------------------------
  */
+/*
 html,
 body {
   min-height: 100%;
@@ -26,6 +27,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+*/
 /* Layout */
 .wrapper {
   min-height: 100%;
@@ -153,7 +155,7 @@ h6,
 .h6 {
   font-family: 'Source Sans Pro', sans-serif;
 }
-/* General Links */
+/* General Links *//*
 a {
   color: #3c8dbc;
 }
@@ -163,7 +165,7 @@ a:focus {
   outline: none;
   text-decoration: none;
   color: #72afd2;
-}
+}*/
 /* Page Header */
 .page-header {
   margin: 10px 0 20px 0;
@@ -2325,12 +2327,12 @@ a:focus {
 /*
  * Component: Nav
  * --------------
- */
+ *//*
 .nav > li > a:hover,
 .nav > li > a:active,
 .nav > li > a:focus {
   color: #444;
-  background: #f7f7f7;
+  background: #D2D2D2;
 }
 /* NAV PILLS */
 .nav-pills > li > a {
@@ -2461,7 +2463,7 @@ a:focus {
 .nav-tabs-custom .dropdown.open > a:focus {
   background: transparent;
   color: #999;
-}
+}/*
 /* PAGINATION */
 .pagination > li > a {
   background: #fafafa;

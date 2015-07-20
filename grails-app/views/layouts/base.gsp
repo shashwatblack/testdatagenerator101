@@ -78,16 +78,19 @@ body {
     border-radius: 0.3em;
 }
 
+.nav>li>a:focus, .nav>li>a:hover {
+    background-color: #D2D2D2; !important;
+}
+.nav a:focus, .nav a:hover {
+    background-color: #D2D2D2; !important;
+    color: #444;
+    text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
 .nav a:active, .nav a:visited {
     color: #666666;
 }
 
-.nav a:focus, .nav a:hover {
-    background-color: #999999;
-    color: #ffffff;
-    outline: none;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.8);
-}
 
 .no-borderradius .nav a:focus, .no-borderradius .nav a:hover {
     background-color: transparent;
@@ -595,10 +598,10 @@ background-attachment: fixed;">
             <div>
                 <div>
                     <ul class="nav">
-                        <li class="active"><a href="/TestDataGenerator101/">Home</a></li>
-                        <li><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
-                        <li><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
-                        <li><a href="#">Data Blinding</a></li>
+                        <li id="nav-home"><a href="/TestDataGenerator101/">Home</a></li>
+                        <li id="nav-domainconf"><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
+                        <li id="nav-queryexec"><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
+                        <li id="nav-datablind"><a href="#">Data Blinding</a></li>
                     </ul>
                 </div>
             </div>

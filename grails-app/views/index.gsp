@@ -27,6 +27,14 @@
 				list-style-position: inside;
 				margin: 0.25em 0;
 			}
+            .nav>li>a:focus, .nav>li>a:hover {
+                background-color: #D2D2D2;
+            }
+            .nav a:focus, .nav a:hover {
+                background-color: #999999;
+                color: #444;
+                text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+            }
 		</style>
 	</head>
 	<body>
@@ -63,5 +71,12 @@
 				</ul>
 			</div>
 		</div>
+
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#nav-home').css({'background-color': '#d2d2d2','-webkit-border-radius': '0.3em','border-radius': '0.3em'});
+        });
+    </script>
 	</body>
 </html>

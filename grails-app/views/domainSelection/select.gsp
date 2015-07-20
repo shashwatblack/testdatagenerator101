@@ -26,6 +26,7 @@
         $(document).ready(function() {
             $('.selectpicker').selectpicker();
 
+            $('#nav-queryexec').css({'background-color': '#d2d2d2','-webkit-border-radius': '0.3em','border-radius': '0.3em'});
         });
     </script>
 

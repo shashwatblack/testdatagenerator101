@@ -28,6 +28,8 @@ $(document).ready(function() {
         fieldCounter--;
     });
 
+    $('#nav-domainconf').css({'background-color': '#d2d2d2','-webkit-border-radius': '0.3em','border-radius': '0.3em'});
+
 });
 
 function addfieldBox(fc) {
@@ -76,4 +78,52 @@ function attachSelectPickerChangeEvent(sno) {
         }
 
     });
+}
+
+function addDomain() {
+    var newDomainName = $("#new-domain-name").val();
+    if (newDomainName != "") {
+        newDomainName = newDomainName + ".json";
+        $.ajax ({
+            type: 'POST',
+            url: '/TestDataGenerator101/domainConf/addNewDomain',
+            data: {newDomainName: newDomainName},
+            success: (function(response) {
+                if (response=='false') {
+                    alert('File already exists.')
+                } else {
+                    alert('File successfully created.');
+                    location.reload();
+                }
+            }),
+            error: (function(){
+                alert('Some error occurred. Cannot execute ajax call.')
+            })
+        });
+
+    }
+}
+
+function deleteDomain() {
+    var newDomainName = $("#new-domain-name").val();
+    if (newDomainName != "") {
+        newDomainName = newDomainName + ".json";
+        $.ajax ({
+            type: 'POST',
+            url: '/TestDataGenerator101/domainConf/addNewDomain',
+            data: {newDomainName: newDomainName},
+            success: (function(response) {
+                if (response=='false') {
+                    alert('File already exists.')
+                } else {
+                    alert('File successfully created.');
+                    location.reload();
+                }
+            }),
+            error: (function(){
+                alert('Some error occurred. Cannot execute ajax call.')
+            })
+        });
+
+    }
 }

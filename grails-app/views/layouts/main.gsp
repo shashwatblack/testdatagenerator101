@@ -24,10 +24,10 @@
         <div>
             <div>
                 <ul class="nav" style="width:99%; height:36px">
-                    <li class="active"><a href="/TestDataGenerator101/">Home</a></li>
-                    <li><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
-                    <li><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
-                    <li><a href="#">Data Blinding</a></li>
+                    <li id="nav-home"><a href="/TestDataGenerator101/">Home</a></li>
+                    <li id="nav-domainconf"><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
+                    <li id="nav-queryexec"><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
+                    <li id="nav-datablind"><a href="#">Data Blinding</a></li>
                 </ul>
             </div>
         </div>

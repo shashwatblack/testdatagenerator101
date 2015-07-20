@@ -26,6 +26,10 @@ $(document).ready(function () {
 
     //make select tags beautiful
     $('.selectpicker').selectpicker();
+
+    //nav-element active
+    $('#nav-queryexec').css({'background-color': '#d2d2d2','-webkit-border-radius': '0.3em','border-radius': '0.3em'});
+
 });
 
 function updateShowingTable() {

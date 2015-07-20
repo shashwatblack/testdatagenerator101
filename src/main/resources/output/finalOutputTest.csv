@@ -1,51 +1,51 @@
-name,Address,caste,salary,age,DOB,id,salary,age
-amit,Cemuv Grove,Ctaula,559626.55,24,2042/05/10,1,858218.75,3
-amit,Cemuv Grove,Chmod,390801.20,124,2044/02/10,2,515388.97,104
-amit,Sufa Boulevard,Bhatta,559626.55,36,2052/04/08,3,629146.07,110
-anita,Zenrug Key,Bhandari,254724.18,41,2028/06/20,4,95046.55,70
-amit,Jiwlas Turnpike,Chmod,250965.43,87,2028/12/20,5,603243.09,55
-anita,Bita Mill,CCCC,250965.43,6,1997/07/23,6,197344.74,55
-amit,Jiwlas Turnpike,Baiba,271010.34,58,2029/11/28,7,524978.72,42
-amit,Sufa Boulevard,Bhandari,370578.34,80,2046/06/26,8,369841.40,27
-amit,Urbi Drive,Bhandari,562466.67,33,2000/10/22,9,667656.62,91
-anita,Cipik Turnpike,Baiba,82417.62,87,2031/07/03,10,910517.11,42
-amit,Purfez View,Ctaula,387514.93,19,2001/07/25,11,77906.72,61
-anita,Lawu View,Ctaula,875797.51,84,2038/09/13,12,116355.87,61
-anita,Bogihi Key,CCCC,971968.02,45,2010/01/12,13,611787.08,55
-anita,Akare Circle,Baiba,787600.86,115,2023/09/17,14,517523.53,100
-amit,Sonov Terrace,Bhandari,102018.02,68,2000/10/22,15,738776.56,110
-anita,Bovu Parkway,Baiba,635868.92,89,2020/10/03,16,355200.03,104
-amit,Rufuf Parkway,CCCC,635868.92,45,2014/01/20,17,227302.50,94
-anita,Puphen Highway,Ctaula,370578.34,6,2035/06/29,18,777690.40,104
-amit,Mefo Manor,Bhatta,800856.57,77,2004/04/29,19,898901.56,33
-anita,Zenrug Key,Bhandari,262465.17,112,2035/11/06,20,82370.06,118
-anita,Jiwlas Turnpike,Ctaula,83390.87,42,2019/03/30,21,82370.06,91
-amit,Sufa Boulevard,Ctaula,970588.28,101,2052/04/08,22,501927.79,119
-anita,Sopmu Drive,Bhandari,970588.28,3,2038/09/13,23,894766.96,55
-anita,Ledisu View,Bhatta,427140.76,53,2037/02/01,24,606004.88,12
-amit,Cemuv Grove,CCCC,53153.50,79,2004/04/29,25,524484.70,118
-anita,Moffol Place,CCCC,588721.51,67,2028/06/20,26,898901.56,10
-amit,Akare Circle,Ctaula,611938.93,119,2033/01/06,27,255494.33,100
-amit,Omsim Highway,CCCC,174764.43,80,2035/06/29,28,606004.88,20
-amit,Towkep Park,Bhandari,335723.77,95,2035/06/29,29,996067.48,56
-amit,Puphen Highway,Baiba,373588.24,4,2029/11/28,30,501927.79,50
-anita,Jafgu Ridge,Baiba,886830.58,24,2010/11/11,31,515388.97,39
-amit,Ujilut Mill,Bhatta,912841.67,84,2035/02/02,32,101285.48,91
-anita,Cipik Turnpike,CCCC,886830.58,80,2052/04/24,33,116355.87,26
-amit,Purfez View,Baiba,971968.02,44,2012/05/08,34,894766.96,20
-anita,Urbi Drive,Bhatta,689145.70,114,2017/02/17,35,116355.87,10
-anita,Vehip Manor,Bhandari,957395.21,19,2030/07/18,36,515388.97,110
-anita,Puphen Highway,Chmod,611938.93,6,2046/08/04,37,124348.50,100
-anita,Towkep Park,Chmod,905063.15,15,2035/02/02,38,999437.67,61
-anita,Bogihi Key,Ctaula,875797.51,84,2006/06/30,39,95046.55,104
-anita,Jiwlas Turnpike,Baiba,238332.43,16,2036/09/23,40,910517.11,43
-anita,Kiobo Parkway,Bhatta,787600.86,79,2038/06/30,41,703114.26,42
-anita,Nebsan Drive,Bhandari,875797.51,68,2036/06/22,42,197344.74,38
-amit,Nebsan Drive,Bhandari,886830.58,67,2029/11/28,43,8577.22,87
-anita,Jukbuh Key,Ctaula,271010.34,95,2004/09/23,44,611787.08,15
-amit,Jukbuh Key,Baiba,800856.57,44,2028/06/20,45,858218.75,100
-amit,Zenrug Key,Bhandari,473080.71,77,2013/03/05,46,999437.67,18
-anita,Uzebu Center,Baiba,362350.39,84,2000/10/22,47,517523.53,55
-amit,Urbi Drive,Ctaula,787600.86,58,2036/06/22,48,930464.67,80
-anita,Cemuv Grove,Baiba,635868.92,41,2012/05/08,49,501927.79,30
-anita,Akare Circle,Ctaula,174764.43,79,2004/04/29,50,369841.40,94
+name,Address,caste,DOB,id,salary,age
+amit,,CCCC,2007/04/07,1,358510.66,21
+amit,Dofciv Circle,Bhatta,2051/10/25,2,581336.75,27
+anita,,Bhandari,2055/02/01,3,407781.75,21
+anita,,CCCC,2041/11/07,4,163552.28,65
+amit,Jiwlas Turnpike,Chmod,2051/05/11,5,606403.06,21
+anita,Onolah Highway,Bhatta,2005/03/09,6,358510.66,114
+anita,Ovece Manor,Bhandari,2028/10/13,7,606403.06,114
+anita,street,Baiba,2050/11/28,8,905479.85,103
+amit,Tahfun Street,CCCC,2036/11/03,9,665811.20,113
+amit,Bipi Place,CCCC,2023/07/10,10,413774.55,87
+anita,Bipi Place,Bhatta,2027/01/04,11,720256.62,1
+amit,Gizfil Ridge,CCCC,2046/01/24,12,578524.54,103
+anita,Cibfu Lane,Ctaula,2021/05/12,13,503262.83,79
+anita,Jerom View,Bhatta,2009/09/02,14,719214.64,92
+amit,Tahfun Street,Chmod,2007/03/31,15,325475.26,97
+amit,Dobeso Place,Baiba,2049/08/04,16,433881.55,94
+anita,Dofciv Circle,Ctaula,2055/02/12,17,581336.75,87
+anita,Onolah Highway,CCCC,2040/03/07,18,79309.53,17
+anita,Bipi Place,Baiba,2023/12/12,19,163552.28,42
+anita,Towkep Park,Chmod,2041/11/07,20,68308.36,65
+anita,Edekig Mill,Chmod,2001/05/25,21,498911.00,97
+amit,street,Bhatta,2032/01/17,22,308876.01,80
+amit,Egnuh Lane,Bhandari,2049/04/29,23,152006.95,42
+amit,Dofciv Circle,Chmod,2004/10/26,24,429457.66,61
+amit,Suvwov Manor,Baiba,2037/12/14,25,802307.30,26
+anita,Onolah Highway,Bhandari,2044/01/01,26,68308.36,90
+amit,Solzu Heights,Bhandari,2021/05/12,27,346408.59,70
+amit,Egnuh Lane,Baiba,2037/12/14,28,248092.29,21
+anita,Jiwoz Center,Bhandari,2041/11/07,29,100591.64,21
+anita,Dobeso Place,Bhandari,2037/12/14,30,171209.12,54
+anita,Ezje Street,Chmod,1996/08/13,31,152006.95,21
+anita,Urbi Drive,CCCC,2037/12/14,32,503262.83,87
+amit,Bipi Place,Chmod,2037/12/14,33,54842.79,16
+anita,street,Baiba,2051/05/11,34,521823.08,17
+amit,,Bhatta,2007/03/31,35,881758.94,40
+amit,Doap Path,Chmod,2007/04/07,36,632342.06,103
+anita,Coal Road,CCCC,2023/07/10,37,720256.62,38
+anita,Jifa Heights,Bhatta,2021/05/12,38,509658.09,94
+amit,Jiwlas Turnpike,Baiba,1998/08/12,39,407781.75,65
+anita,Egnuh Lane,Chmod,2004/10/26,40,864397.36,54
+anita,Doap Path,Ctaula,1997/08/06,41,633383.50,113
+amit,Onolah Highway,CCCC,2040/02/15,42,498911.00,38
+anita,Suvwov Manor,Bhandari,2010/05/09,43,769928.27,65
+amit,Izmob Plaza,Bhandari,2036/11/03,44,769928.27,112
+anita,Dofciv Circle,Bhatta,2051/05/11,45,902342.26,26
+amit,Dofciv Circle,Baiba,2004/10/26,46,612541.43,90
+amit,,Ctaula,2026/05/17,47,308876.01,113
+amit,Bipi Place,Baiba,2018/12/16,48,864397.36,40
+amit,Wafrol Grove,Baiba,2041/11/07,49,239791.81,92
+anita,Jigja Avenue,Chmod,2022/06/14,50,612541.43,11
