@@ -25,7 +25,7 @@
     <script type="text/javascript">
         function addDomain() {
             var newDomainName = $("#new-domain-name").val();
-            if (newDomainName != null) {
+            if (newDomainName != "") {
                 newDomainName = newDomainName + ".json";
                 $.ajax ({
                     type: 'POST',
@@ -35,9 +35,8 @@
                         if (response=='false') {
                             alert('File already exists.')
                         } else {
-                            alert('File successfully created.')
-                            ${domainNameList.add('string')}
-                            $('.selectpicker').selectpicker('refresh');
+                            alert('File successfully created.');
+                            location.reload();
                         }
                     }),
                     error: (function(){
@@ -72,31 +71,6 @@
                             name="addDomainButton">
                         Add
                     </button>
-
-
-                    <!-- Modal -->
-                    <div id="addDomainModal" class="modal fade" role="dialog">
-                        <div class="modal-dialog">
-
-                            <!-- Modal content-->
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title">Add a new Domain</h4>
-                                </div>
-                                <div class="modal-body">
-                                    <p>Enter the domain name</p>
-                                    <input type="text" class="form-control" id="new-domain-name" name="new-domain-name" style="width: 45%" />
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" id="addDomainModalCreateButton"
-                                    onclick="addDomain();">Create</button>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -183,7 +157,31 @@
         </div>
         <!-- /row -->
         </form>
-    </div>
+        <!--  MODALS  -->
+        <!-- Add Domain Modal -->
+        <form>
+        <div id="addDomainModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add a new Domain</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Enter the domain name</p>
+                        <input type="text" class="form-control" id="new-domain-name" name="new-domain-name" style="width: 45%" autofocus />
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-default" data-dismiss="modal" id="addDomainModalCreateButton"
+                                onclick="addDomain();">Create</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div></form>
 </div>
 </body>
 

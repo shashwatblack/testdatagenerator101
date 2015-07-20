@@ -29,6 +29,9 @@ class DomainConfController {
     def addNewDomain(String newDomainName) {
         newDomainName = 'src/main/resources/domain_config/' + newDomainName
         print(newDomainName)
+        List <String> domainNameList = (new Utils()).domainNameList
+        print(domainNameList)
+        render {[response: true]} as JSON
         boolean success = new File(newDomainName).createNewFile()
         print(success)
         render {[response: success]} as JSON
@@ -36,7 +39,7 @@ class DomainConfController {
 
     def saveDomainConf() {
         if (! params.containsKey("domainList")) return
-        String selectedDomain = "manual_domain"//params.get("domainList")
+        String selectedDomain = params.get("domainList")
         JSONParser jsonParser = new JSONParser()
         try {
             JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("src/main/resources/domain_config/" + selectedDomain + ".json"))
