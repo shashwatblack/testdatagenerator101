@@ -1,51 +1,51 @@
-name,Address,caste,DOB,id,salary,age
-amit,,CCCC,2007/04/07,1,358510.66,21
-amit,Dofciv Circle,Bhatta,2051/10/25,2,581336.75,27
-anita,,Bhandari,2055/02/01,3,407781.75,21
-anita,,CCCC,2041/11/07,4,163552.28,65
-amit,Jiwlas Turnpike,Chmod,2051/05/11,5,606403.06,21
-anita,Onolah Highway,Bhatta,2005/03/09,6,358510.66,114
-anita,Ovece Manor,Bhandari,2028/10/13,7,606403.06,114
-anita,street,Baiba,2050/11/28,8,905479.85,103
-amit,Tahfun Street,CCCC,2036/11/03,9,665811.20,113
-amit,Bipi Place,CCCC,2023/07/10,10,413774.55,87
-anita,Bipi Place,Bhatta,2027/01/04,11,720256.62,1
-amit,Gizfil Ridge,CCCC,2046/01/24,12,578524.54,103
-anita,Cibfu Lane,Ctaula,2021/05/12,13,503262.83,79
-anita,Jerom View,Bhatta,2009/09/02,14,719214.64,92
-amit,Tahfun Street,Chmod,2007/03/31,15,325475.26,97
-amit,Dobeso Place,Baiba,2049/08/04,16,433881.55,94
-anita,Dofciv Circle,Ctaula,2055/02/12,17,581336.75,87
-anita,Onolah Highway,CCCC,2040/03/07,18,79309.53,17
-anita,Bipi Place,Baiba,2023/12/12,19,163552.28,42
-anita,Towkep Park,Chmod,2041/11/07,20,68308.36,65
-anita,Edekig Mill,Chmod,2001/05/25,21,498911.00,97
-amit,street,Bhatta,2032/01/17,22,308876.01,80
-amit,Egnuh Lane,Bhandari,2049/04/29,23,152006.95,42
-amit,Dofciv Circle,Chmod,2004/10/26,24,429457.66,61
-amit,Suvwov Manor,Baiba,2037/12/14,25,802307.30,26
-anita,Onolah Highway,Bhandari,2044/01/01,26,68308.36,90
-amit,Solzu Heights,Bhandari,2021/05/12,27,346408.59,70
-amit,Egnuh Lane,Baiba,2037/12/14,28,248092.29,21
-anita,Jiwoz Center,Bhandari,2041/11/07,29,100591.64,21
-anita,Dobeso Place,Bhandari,2037/12/14,30,171209.12,54
-anita,Ezje Street,Chmod,1996/08/13,31,152006.95,21
-anita,Urbi Drive,CCCC,2037/12/14,32,503262.83,87
-amit,Bipi Place,Chmod,2037/12/14,33,54842.79,16
-anita,street,Baiba,2051/05/11,34,521823.08,17
-amit,,Bhatta,2007/03/31,35,881758.94,40
-amit,Doap Path,Chmod,2007/04/07,36,632342.06,103
-anita,Coal Road,CCCC,2023/07/10,37,720256.62,38
-anita,Jifa Heights,Bhatta,2021/05/12,38,509658.09,94
-amit,Jiwlas Turnpike,Baiba,1998/08/12,39,407781.75,65
-anita,Egnuh Lane,Chmod,2004/10/26,40,864397.36,54
-anita,Doap Path,Ctaula,1997/08/06,41,633383.50,113
-amit,Onolah Highway,CCCC,2040/02/15,42,498911.00,38
-anita,Suvwov Manor,Bhandari,2010/05/09,43,769928.27,65
-amit,Izmob Plaza,Bhandari,2036/11/03,44,769928.27,112
-anita,Dofciv Circle,Bhatta,2051/05/11,45,902342.26,26
-amit,Dofciv Circle,Baiba,2004/10/26,46,612541.43,90
-amit,,Ctaula,2026/05/17,47,308876.01,113
-amit,Bipi Place,Baiba,2018/12/16,48,864397.36,40
-amit,Wafrol Grove,Baiba,2041/11/07,49,239791.81,92
-anita,Jigja Avenue,Chmod,2022/06/14,50,612541.43,11
+f2,f1
+86,ccc
+21,ccc
+25,ccc
+23,ccc
+50,bb
+34,a
+31,ccc
+35,ccc
+55,a
+37,bb
+24,ccc
+88,a
+96,bb
+58,a
+82,bb
+18,a
+51,a
+57,a
+18,bb
+34,a
+81,bb
+33,ccc
+97,ccc
+46,a
+55,a
+56,a
+64,a
+47,a
+44,bb
+26,ccc
+37,ccc
+70,a
+79,bb
+40,a
+89,ccc
+20,a
+26,a
+84,a
+89,a
+74,bb
+16,a
+48,a
+46,a
+42,ccc
+61,a
+38,a
+69,a
+77,bb
+70,a
+32,ccc

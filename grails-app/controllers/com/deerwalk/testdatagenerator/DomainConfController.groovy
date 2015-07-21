@@ -18,7 +18,7 @@ class DomainConfController {
 
     def add() {
         Utils utils = new Utils()
-        List <String> domainNameList = utils.domainNameList
+        List<String> domainNameList = utils.domainNameList
         [domainNameList: domainNameList, defaultDomain: domainNameList[0]]
     }
 
@@ -33,13 +33,39 @@ class DomainConfController {
     def addNewDomain(String domainName) {
         domainName = 'src/main/resources/domain_config/' + domainName
         boolean success = new File(domainName).createNewFile()
-        render {[response: success]} as JSON
+        if (success) {
+            // write an empty json array to initialize the file.
+            FileWriter fileWriter = new FileWriter(domainName)
+            fileWriter.write('[]')
+            fileWriter.flush()
+            fileWriter.close()
+        }
+        render { [response: success] } as JSON
     }
 
     def deleteDomain(String domainName) {
         domainName = 'src/main/resources/domain_config/' + domainName
-        boolean success =  new File(domainName).delete()
-        render {[response: success]} as JSON
+        boolean success = new File(domainName).delete()
+        render { [response: success] } as JSON
+    }
+
+    def saveEditedDomain(String domainName, String editedText) {
+        domainName = 'src/main/resources/domain_config/' + domainName
+        boolean success
+        try {
+            FileWriter fileWriter = new FileWriter(domainName)
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(editedText);
+            String prettyJSON = gson.toJson(je);
+            fileWriter.write(prettyJSON)
+            fileWriter.flush()
+            fileWriter.close()
+            success = true;
+        } catch (Exception ex) {
+            success = false;
+        }
+        render { [response: success] } as JSON
     }
 
     def fetchDomain(String domainName) {
@@ -49,7 +75,7 @@ class DomainConfController {
     }
 
     def saveDomainConf() {
-        if (! params.containsKey("domainList")) return
+        if (!params.containsKey("domainList")) return
         String selectedDomain = params.get("domainList")
         JSONParser jsonParser = new JSONParser()
         try {
@@ -79,8 +105,10 @@ class DomainConfController {
                     if (params.containsKey("chk-autoincrement" + fieldCounter))
                         field.put("autoincrement", "true")
                     fields.add(field)
-                    fieldCounter ++
-                } else { break }
+                    fieldCounter++
+                } else {
+                    break
+                }
             }
             newObject.put("fields", fields)
 

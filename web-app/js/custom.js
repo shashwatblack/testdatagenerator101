@@ -28,8 +28,21 @@ $(document).ready(function () {
         fieldCounter--;
     });
 
+    //nav bar update
     $('#nav-domainconf').css({'background-color': '#d2d2d2', '-webkit-border-radius': '0.3em', 'border-radius': '0.3em'});
 
+    //validate
+    /*jQuery.validator.addMethod("IsJsonString", function (value, element) {
+        return this.optional(element) || (parseFloat(value) > 0);
+    }, "* Text must be valid JSON.");
+    $('#editDomainModalForm').validate({
+        editDomainModalTextArea: {
+            IsJsonString: false
+        }
+    });*/
+
+    //set toastr options
+    toastr.options.positionClass = "toast-bottom-right";
 });
 
 function addfieldBox(fc) {
@@ -134,11 +147,55 @@ function fetchAndPlaceDomain() {
         url: '/TestDataGenerator101/domainConf/fetchDomain',
         data: {domainName: selectedDomainName},
         success: (function (response) {
-            console.log(response);
             $('#editDomainModalTextArea').val(response)
         }),
         error: (function () {
             alert('Some error occurred. Cannot execute ajax call.')
         })
     });
+}
+
+function saveEditedDomain() {
+    var selectedDomainName = $('#domainList option:selected').text();
+    selectedDomainName = selectedDomainName + ".json";
+    var editedText = $('#editDomainModalTextArea').val();
+    if (! IsJsonString(editedText)) {
+        //alert('not json');
+        toastr['success']("Domain file successfully edited.");
+        $('#editDomainModalTextArea').tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+            .data("title", "Invalid JSON. Check again.")
+            .addClass("error")
+            .tooltip().focus(); // Create a new tooltip based on the error messsage we just set in the title
+    } else {
+        $('#editDomainModalTextArea').data("alt", "") // Clear the title - there is no error associated anymore
+            .removeClass("error")
+            .tooltip("destroy");
+        $.ajax({
+            type: 'POST',
+            url: '/TestDataGenerator101/domainConf/saveEditedDomain',
+            data: {domainName: selectedDomainName, editedText: editedText},
+            success: (function (response) {
+                if (response == 'false') {
+                    alert('Something\'s wrong.')
+                } else {
+                    //alert('Domain file successfully edited.');
+                    toastr.success("Domain file edited.");
+                    //location.reload();
+                }
+            }),
+            error: (function () {
+                alert('Some error occurred. Cannot execute ajax call.')
+            })
+        });
+        $('#editDomainModal').modal('hide');
+    }
+}
+
+function IsJsonString(str) {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
 }

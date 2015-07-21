@@ -16,11 +16,13 @@
     <link href="../css/AdminLTE.css" type="text/css" rel="stylesheet">
     <link href="../css/domainConfAddCustom.css" type="text/css" rel="stylesheet">
     <link href="../plugins/iCheck/skins/square/blue.css" type="text/css" rel="stylesheet">
+    <link href="../plugins/toastr/toastr.css" type="text/css" rel="stylesheet">
 
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-select.min.js"></script>
     <script src="../plugins/iCheck/icheck.js"></script>
+    <script src="../plugins/toastr/toastr.js"></script>
     <script src="../js/custom.js"></script>
 </head>
 
@@ -168,7 +170,7 @@
                 </div>
 
                 <div class="modal-body">
-                    <p>Enter the domain name</p>
+                    <p>Enter the domain name (no extensions)</p>
                     <input type="text" class="form-control" id="new-domain-name" name="new-domain-name"
                            style="width: 45%" autofocus/>
                 </div>
@@ -211,8 +213,8 @@
     </div>
 </form>
 <!-- Edit Domain Modal -->
-<form>
-    <div id="editDomainModal" class="modal fade" role="dialog">
+<form id="editDomainModalForm">
+    <div id="editDomainModal" class="modal fade" role="dialog" data-backdrop="static">
         <div class="modal-dialog" style="height:90%">
             <!-- Modal content-->
             <div class="modal-content" style="height:100%">
@@ -222,14 +224,14 @@
                 </div>
 
                 <div class="modal-body" style="height:calc(100% - 120px)">
-                    <textarea id="editDomainModalTextArea" class="input"
+                    <textarea id="editDomainModalTextArea" name="editDomainModalTextArea" class="input"
                               style="max-width:100%; width: 100%; height: 100%;"></textarea>
                 </div>
 
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-default" data-dismiss="modal"
+                    <button type="button" class="btn btn-default"
                             id="editDomainModalSaveButton"
-                            onclick="editDomain();">Save</button>
+                            onclick="saveEditedDomain();">Save</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
