@@ -213,16 +213,17 @@
 <!-- Edit Domain Modal -->
 <form>
     <div id="editDomainModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+        <div class="modal-dialog" style="height:90%">
             <!-- Modal content-->
-            <div class="modal-content">
+            <div class="modal-content" style="height:100%">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4 class="modal-title">Edit <span class="domainNamePlaceholder"></span></h4>
                 </div>
 
-                <div class="modal-body">
-                    <textarea id="editDomainModalTextArea" class="input" style="max-width:100% ;width: 100%;"></textarea>
+                <div class="modal-body" style="height:calc(100% - 120px)">
+                    <textarea id="editDomainModalTextArea" class="input"
+                              style="max-width:100%; width: 100%; height: 100%;"></textarea>
                 </div>
 
                 <div class="modal-footer">

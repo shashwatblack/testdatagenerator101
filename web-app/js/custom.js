@@ -134,7 +134,7 @@ function fetchAndPlaceDomain() {
         url: '/TestDataGenerator101/domainConf/fetchDomain',
         data: {domainName: selectedDomainName},
         success: (function (response) {
-            console.log(response)
+            console.log(response);
             $('#editDomainModalTextArea').val(response)
         }),
         error: (function () {

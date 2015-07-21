@@ -1,1 +1,76 @@
-[{"name":"Data1","fields":[{"unique":"true","source":"src\/main\/resources\/name.csv","type":"String","field_name":"name"},{"source":"src\/main\/resources\/last.csv","type":"String","field_name":"caste"},{"upper_range":"125","type":"integer","field_name":"age","lower_range":"1"},{"source":"src\/main\/resources\/address.csv","type":"String","field_name":"Address"},{"upper_range":"2055\/12\/12","type":"date","field_name":"DOB","lower_range":"1995\/10\/21"}]},{"name":"table_name2","fields":[{"unique":"true","source":"src\/main\/resources\/name.csv","type":"String","field_name":"name"},{"upper_range":"200000.55","type":"double","field_name":"salary","lower_range":"100.00"}]},{"name":"","fields":[{"source":"","type":"string","field_name":""}]},{"name":null,"fields":[]}]
+[
+  {
+    "name": "Data1",
+    "fields": [
+      {
+        "unique": "true",
+        "source": "src/main/resources/name.csv",
+        "type": "String",
+        "field_name": "name"
+      },
+      {
+        "source": "src/main/resources/last.csv",
+        "type": "String",
+        "field_name": "caste"
+      },
+      {
+        "upper_range": "125",
+        "type": "integer",
+        "field_name": "age",
+        "lower_range": "1"
+      },
+      {
+        "source": "src/main/resources/address.csv",
+        "type": "String",
+        "field_name": "Address"
+      },
+      {
+        "upper_range": "2055/12/12",
+        "type": "date",
+        "field_name": "DOB",
+        "lower_range": "1995/10/21"
+      }
+    ]
+  },
+  {
+    "name": "table_name2",
+    "fields": [
+      {
+        "unique": "true",
+        "source": "src/main/resources/name.csv",
+        "type": "String",
+        "field_name": "name"
+      },
+      {
+        "upper_range": "200000.55",
+        "type": "double",
+        "field_name": "salary",
+        "lower_range": "100.00"
+      }
+    ]
+  },
+  {
+    "name": "table3",
+    "fields": [
+      {
+        "unique": "true",
+        "source": "/src/dhan",
+        "type": "string",
+        "field_name": "khet"
+      },
+      {
+        "upper_range": "10",
+        "autoincrement": "true",
+        "type": "integer",
+        "field_name": "bari",
+        "lower_range": "1"
+      },
+      {
+        "upper_range": "200",
+        "type": "float",
+        "field_name": "nali",
+        "lower_range": "100"
+      }
+    ]
+  }
+]

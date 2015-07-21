@@ -1,5 +1,9 @@
 package com.deerwalk.testdatagenerator
 
+import com.google.gson.Gson
+import com.google.gson.GsonBuilder
+import com.google.gson.JsonElement
+import com.google.gson.JsonParser
 import com.major.antlrTest.domainConfiguration.Utils
 import grails.converters.JSON
 import org.json.simple.JSONArray
@@ -41,8 +45,7 @@ class DomainConfController {
     def fetchDomain(String domainName) {
         domainName = 'src/main/resources/domain_config/' + domainName
         String contents = new File(domainName).text
-        print contents
-        render {[response: contents]} as JSON
+        render contents
     }
 
     def saveDomainConf() {
@@ -85,7 +88,12 @@ class DomainConfController {
             jsonArray.add(newObject);
             //write jsonArray back to file
             FileWriter fileWriter = new FileWriter("src/main/resources/domain_config/" + selectedDomain + ".json")
-            fileWriter.write(jsonArray.toJSONString())
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String uglyJSON = jsonArray.toJSONString();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(uglyJSON);
+            String prettyJSON = gson.toJson(je);
+            fileWriter.write(prettyJSON)
             fileWriter.flush()
             fileWriter.close()
 
