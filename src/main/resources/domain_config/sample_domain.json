@@ -1,34 +1,68 @@
 [
     {
         "name": "table_name1",
+        "dependency":"table_name2",
+
         "fields": [
             {
                 "field_name": "name",
                 "type": "String",
-                "source": "{amit, dipesh, dinesh, dipak, anita, deepika, dipti, dinank}",
+                "source":
+                {
+                    "array": "{amit, dipesh, dinesh, dipak, anita, deepika, dipti, dinank}"
+                },
                 "unique": "false"
             },
             {
-                "field_name": "id",
-                "type": "integer",
-                "autoincrement":"true",
-                "unique": "true"
+                "field_name": "identity",
+                "type": "integer"
+
+
             },
+
             {
                 "field_name": "caste",
                 "type": "String",
-                "source": "src/main/resources/last.csv"
+                "source": {
+                    "relation":"table_name2.caste1"
+                }
             },
-            {
-                "field_name": "age",
-                "type": "integer",
-                "lower_range": "1",
-                "upper_range": "125"
-            },
+
             {
                 "field_name": "Address",
                 "type": "String",
-                "source": "src/main/resources/address.csv"
+                "source": {
+                    "path":"src/main/resources/address.csv"
+                }
+            },
+            {
+                "field_name": "DOB",
+                "type": "date",
+                "source": {
+                    "relation":"table_name2.DOB"
+                }
+
+            },
+            {
+                "field_name": "salary",
+                "type": "double",
+                "source": {
+                    "relation":"table_name2.salary"
+                }
+            }
+        ]
+    },
+    {
+        "name": "table_name2",
+        "source": "src/main/resources/input/table_nam2SourceFile.csv",
+        "fields": [
+            {
+                "field_name": "name1",
+                "type": "String",
+                "source": {
+                    "index": "0"
+                }
+
             },
             {
                 "field_name": "DOB",
@@ -37,27 +71,56 @@
                 "lower_range": "1995/10/21"
             },
             {
-                "field_name": "salary",
-                "type": "double",
-                "upper_range": "1000000",
-                "lower_range": "5000"
-            }
-        ]
-    },
-    {
-        "name": "table_name2",
-        "source": "src/main/resources/table_name2.csv",
-        "fields": [
-            {
-                "field_name": "name1",
-                "type": "String",
-                "index":"0"
-
+                "field_name": "id",
+                "type": "integer",
+                "autoincrement":"true",
+                "lower_range": "1",
+                "upper_range": "125",
+                "unique": "true"
             },
             {
                 "field_name": "caste1",
                 "type": "String",
-                "index":"1"
+                "source": {
+                    "index": "1"
+                }
+
+            },
+            {
+                "field_name": "salary",
+                "type": "double",
+                "lower_range": "5000.00",
+                "upper_range": "200000.00"
+            }
+        ]
+    },
+    {
+        "name": "table_name3",
+        "source": "src/main/resources/table_name2.csv",
+        "fields": [
+            {
+                "field_name":"id",
+                "type":"integer",
+                "autoincrement":"true"
+
+            },
+            {
+                "field_name": "name1",
+                "type": "String",
+
+
+                "source":
+                {
+                    "index": "0"
+                }
+            }
+            ,
+            {
+                "field_name": "caste1",
+                "type": "String",
+                "source": {
+                    "index": "1"
+                }
 
             },
             {

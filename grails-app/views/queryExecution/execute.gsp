@@ -13,18 +13,20 @@
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
     <link href="../css/jquery.dataTables.css" type="text/css" rel="stylesheet">
+    <link href="../plugins/toastr/toastr.css" type="text/css" rel="stylesheet">
     <link href="../css/execute_custom.css" type="text/css" rel="stylesheet">
 
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-select.min.js"></script>
+    <script src="../plugins/toastr/toastr.js"></script>
     <script src="../js/execute_custom.js"></script>
 
     <script type="text/javascript">
         function executeButtonClicked() {
             window.open('/TestDataGenerator101/queryExecution/execute?domain='
-                    + document.getElementById('selectedDomain').innerHTML + '&query='
+                    + document.getElementById('grailsvar_selectedDomain').innerHTML + '&query='
                     + document.getElementById('queryInput').value + '&numData='
                     + document.getElementById('numDataInput').value, '_self');
         }
@@ -117,7 +119,9 @@
 
 <!-- Clumsy workaround for accessing grails variables in javascript -->
 <div style="display: none">
-    <span id="selectedDomain">${domain}</span>
+    <span id="grailsvar_selectedDomain">${domain}</span>
+    <span id="grailsvar_success">${success}</span>
+    <span id="grailsvar_message">${message}</span>
 </div>
 <!-- I'm not proud of this :( -->
 </body>

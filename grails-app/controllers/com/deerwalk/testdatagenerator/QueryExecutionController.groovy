@@ -26,6 +26,9 @@ class QueryExecutionController {
         def outputFilesList = []
         def defaultTable = ""
 
+        def success = "T"
+        def message = ""
+
         List fieldNames = [], allEntries = []
         Map allTables=[:]
         if (query != null) {
@@ -36,7 +39,7 @@ class QueryExecutionController {
             try {
                 // clean output directory to avoid past results messing up current ones
                 FileUtils.cleanDirectory(outputDir)
-                filePaths = MyExprTest.executeQuery(query, domain)  //need to pass outputDir and numData
+                filePaths = MyExprTest.executeQuery(query, domain, defaultNumData)  //need to pass outputDir //(done)and numData
                                                                     //also need to omit use or assignment of filePaths
                 // get all the files created by executing the query - all tables in output
                 outputDir.eachFileRecurse (FileType.FILES) { file ->
@@ -69,10 +72,12 @@ class QueryExecutionController {
 //                }
             } catch (Exception ex) {
                 ex.printStackTrace();
+                success = "F"
+                message = ex.getMessage();
                 //throw ex;
             }
         }
-        [domain: domain, defaultQuery: defaultQuery, defaultNumData: defaultNumData, allTables: allTables,
+        [success: success, message: message, domain: domain, defaultQuery: defaultQuery, defaultNumData: defaultNumData, allTables: allTables,
          tableData: allEntries.toArray(), tableNameList: outputFilesList, defaultTable: defaultTable]
     }
 

@@ -1,4 +1,8 @@
 $(document).ready(function () {
+    if (($("#grailsvar_success").html()) == 'F') {
+        toastr.options.positionClass = "toast-top-right";
+        toastr.error($("#grailsvar_message").html());
+    }
     $("#tableList > option").each(function () {
         console.log(this.text);
         var resultTable = $("#resultTable_" + this.text);
