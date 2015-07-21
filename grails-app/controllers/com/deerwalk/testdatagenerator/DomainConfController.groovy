@@ -26,15 +26,23 @@ class DomainConfController {
         render(params)
     }
 
-    def addNewDomain(String newDomainName) {
-        newDomainName = 'src/main/resources/domain_config/' + newDomainName
-        print(newDomainName)
-        List <String> domainNameList = (new Utils()).domainNameList
-        print(domainNameList)
-        render {[response: true]} as JSON
-        boolean success = new File(newDomainName).createNewFile()
-        print(success)
+    def addNewDomain(String domainName) {
+        domainName = 'src/main/resources/domain_config/' + domainName
+        boolean success = new File(domainName).createNewFile()
         render {[response: success]} as JSON
+    }
+
+    def deleteDomain(String domainName) {
+        domainName = 'src/main/resources/domain_config/' + domainName
+        boolean success =  new File(domainName).delete()
+        render {[response: success]} as JSON
+    }
+
+    def fetchDomain(String domainName) {
+        domainName = 'src/main/resources/domain_config/' + domainName
+        String contents = new File(domainName).text
+        print contents
+        render {[response: contents]} as JSON
     }
 
     def saveDomainConf() {

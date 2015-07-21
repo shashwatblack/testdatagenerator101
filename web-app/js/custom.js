@@ -14,21 +14,21 @@
 // });
 
 //alert("fuk")
-$(document).ready(function() {
+$(document).ready(function () {
     // initialize fields counter to 1
     var fieldCounter = 1;
     addfieldBox(fieldCounter);
 
-    $("#add-field").click(function() {
+    $("#add-field").click(function () {
         fieldCounter++;
         addfieldBox(fieldCounter);
     });
-    $("#remove-field").click(function() {
+    $("#remove-field").click(function () {
         removefieldBox(fieldCounter);
         fieldCounter--;
     });
 
-    $('#nav-domainconf').css({'background-color': '#d2d2d2','-webkit-border-radius': '0.3em','border-radius': '0.3em'});
+    $('#nav-domainconf').css({'background-color': '#d2d2d2', '-webkit-border-radius': '0.3em', 'border-radius': '0.3em'});
 
 });
 
@@ -39,7 +39,7 @@ function addfieldBox(fc) {
     activatePlugins();
     attachSelectPickerChangeEvent(fc);
     //enable remove-field button if more than one field is there
-    if(fc > 1) {
+    if (fc > 1) {
         $("#remove-field").attr("disabled", false);
     }
 }
@@ -47,7 +47,7 @@ function addfieldBox(fc) {
 function removefieldBox(fc) {
     $("#field-box" + fc).remove();
     //disable remove-field button if only one field remains
-    if(fc == 2) {
+    if (fc == 2) {
         $("#remove-field").attr("disabled", true);
     }
 }
@@ -63,7 +63,7 @@ function activatePlugins() {
 
 function attachSelectPickerChangeEvent(sno) {
 
-    $("#field-data-type" + sno).change(function(event) {
+    $("#field-data-type" + sno).change(function (event) {
         //alert($(event.target.id).value());
 
         var selectedType = ($("#field-data-type" + sno + " option:selected").text());
@@ -84,19 +84,19 @@ function addDomain() {
     var newDomainName = $("#new-domain-name").val();
     if (newDomainName != "") {
         newDomainName = newDomainName + ".json";
-        $.ajax ({
+        $.ajax({
             type: 'POST',
             url: '/TestDataGenerator101/domainConf/addNewDomain',
-            data: {newDomainName: newDomainName},
-            success: (function(response) {
-                if (response=='false') {
-                    alert('File already exists.')
+            data: {domainName: newDomainName},
+            success: (function (response) {
+                if (response == 'false') {
+                    alert('Domain file already exists.')
                 } else {
-                    alert('File successfully created.');
+                    alert('Domain file successfully created.');
                     location.reload();
                 }
             }),
-            error: (function(){
+            error: (function () {
                 alert('Some error occurred. Cannot execute ajax call.')
             })
         });
@@ -105,25 +105,40 @@ function addDomain() {
 }
 
 function deleteDomain() {
-    var newDomainName = $("#new-domain-name").val();
-    if (newDomainName != "") {
-        newDomainName = newDomainName + ".json";
-        $.ajax ({
-            type: 'POST',
-            url: '/TestDataGenerator101/domainConf/addNewDomain',
-            data: {newDomainName: newDomainName},
-            success: (function(response) {
-                if (response=='false') {
-                    alert('File already exists.')
-                } else {
-                    alert('File successfully created.');
-                    location.reload();
-                }
-            }),
-            error: (function(){
-                alert('Some error occurred. Cannot execute ajax call.')
-            })
-        });
+    var selectedDomainName = $('#domainList option:selected').text();
+    selectedDomainName = selectedDomainName + ".json";
+    $.ajax({
+        type: 'POST',
+        url: '/TestDataGenerator101/domainConf/deleteDomain',
+        data: {domainName: selectedDomainName},
+        success: (function (response) {
+            if (response == 'false') {
+                alert('Something\'s wrong.')
+            } else {
+                alert('Domain file successfully deleted.');
+                location.reload();
+            }
+        }),
+        error: (function () {
+            alert('Some error occurred. Cannot execute ajax call.')
+        })
+    });
+}
 
-    }
+function fetchAndPlaceDomain() {
+    var selectedDomainName = $('#domainList option:selected').text();
+    selectedDomainName = selectedDomainName + ".json";
+    $.ajax({
+        type: 'POST',
+        async: false,
+        url: '/TestDataGenerator101/domainConf/fetchDomain',
+        data: {domainName: selectedDomainName},
+        success: (function (response) {
+            console.log(response)
+            $('#editDomainModalTextArea').val(response)
+        }),
+        error: (function () {
+            alert('Some error occurred. Cannot execute ajax call.')
+        })
+    });
 }

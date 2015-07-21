@@ -4,38 +4,47 @@
 <!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="${assetPath(src: 'favicon.png')}" type="image/x-icon">
-		<link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
-		<link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><g:layoutTitle default="Grails"/></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="${assetPath(src: 'favicon.png')}" type="image/x-icon">
+    <link rel="apple-touch-icon" href="${assetPath(src: 'apple-touch-icon.png')}">
+    <link rel="apple-touch-icon" sizes="114x114" href="${assetPath(src: 'apple-touch-icon-retina.png')}">
 
-        <asset:stylesheet src="application.css"/>
-		<asset:javascript src="application.js"/>
-		<g:layoutHead/>
-	</head>
-	<body>
-		<div id="tdgLogo" role="banner"><asset:image src="banner-logo.png" alt="Test Data Generator"
-                                                        style="height:60px; padding:20px"/></div>
-    <nav class="navbar">
+    <asset:stylesheet src="application.css"/>
+    <asset:javascript src="application.js"/>
+    <g:layoutHead/>
+</head>
+
+<body>
+<div id="tdgLogo" role="banner"><asset:image src="banner-logo.png" alt="Test Data Generator"
+                                             style="height:60px; padding:20px"/></div>
+<nav class="navbar">
+    <div>
         <div>
-            <div>
-                <ul class="nav" style="width:99%; height:36px">
-                    <li id="nav-home"><a href="/TestDataGenerator101/">Home</a></li>
-                    <li id="nav-domainconf"><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
-                    <li id="nav-queryexec"><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
-                    <li id="nav-datablind"><a href="#">Data Blinding</a></li>
-                </ul>
-            </div>
+            <ul class="nav" style="width:99%; height:36px">
+                <li id="nav-home"><a href="/TestDataGenerator101/">Home</a></li>
+                <li id="nav-domainconf"><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
+                <li id="nav-queryexec"><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
+                <li id="nav-datablind"><a href="#">Data Blinding</a></li>
+            </ul>
         </div>
-    </nav>
-		<g:layoutBody/>
-		<div class="footer" role="contentinfo">
-        Deerwalk Services Pvt. Ltd.
-		</div>
-		<div id="spinner" class="spinner" style="display:none;"><g:message code="spinner.alt" default="Loading&hellip;"/></div>
-	</body>
+    </div>
+</nav>
+<g:layoutBody/>
+<div id="footer">
+    <div class="footer" role="contentinfo">
+        <p style="float: left">
+            Deerwalk Services Pvt. Ltd.
+        </p>
+
+        <p style="float: right">
+            <a href="https://github.com/shashwatblack/testdatagenerator101/issues"
+               target="_blank">Bug reports, Feature requests, and more.</a>
+        </p>
+    </div>
+</div>
+</body>
 </html>
