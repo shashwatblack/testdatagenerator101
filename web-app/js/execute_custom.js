@@ -4,7 +4,7 @@ $(document).ready(function () {
         toastr.error($("#grailsvar_message").html());
     }
     $("#tableList > option").each(function () {
-        console.log(this.text);
+        //console.log(this.text);
         var resultTable = $("#resultTable_" + this.text);
         if (resultTable) {
             resultTable.DataTable();
@@ -21,7 +21,7 @@ $(document).ready(function () {
         }
     });
     //show only one table
-    updateShowingTable()
+    updateShowingTable();
 
     //show dropdown list upon table drawing complete
     $("#tableNameListDiv").change(function (event) {

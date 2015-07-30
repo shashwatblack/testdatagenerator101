@@ -188,6 +188,7 @@ background-attachment: fixed;">
                         <li id="nav-domainconf"><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
                         <li id="nav-queryexec"><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
                         <li id="nav-datablind"><a href="#">Data Blinding</a></li>
+                        <li id="nav-resourcemanager"><a href="/TestDataGenerator101/resourceManager">Resource Manager</a></li>
                     </ul>
                 </div>
             </div>

@@ -41,7 +41,8 @@
             <div class="input-group pull-right" style="width:50%; padding-left:10px;">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editDomainModal"
                         style="width:30%; margin-right: 5%;" name="editDomainButton"
-                        onclick="fetchAndPlaceDomain(); $('.domainNamePlaceholder').text($('#domainList option:selected').text())">
+                        onclick="fetchAndPlaceDomain();
+                        $('.domainNamePlaceholder').text($('#domainList option:selected').text())">
                     Edit
                 </button>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteDomainModal"
@@ -61,9 +62,16 @@
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1
     col-sm-10 col-xs-10 col-xs-offset-1">
             <div class="box box-primary" style="width: 90%; margin-left:5%; padding:2%">
-                <div class="box-header">
-                    <input class="form-control input input-lg" type="text" name="table-name"
-                           id="table-name" placeholder="table_name" style="width: 70%;"/>
+                <div class="box-header form-group">
+                    <div style="width: 60%; display: inline-block;">
+                        <input class="form-control input input-lg" type="text" name="table-name"
+                               id="table-name" placeholder="table name"/>
+                    </div>
+
+                    <div style="width: 38%; display: inline-block;" class="pull-right">
+                        <input class="form-control input input-lg" type="text" name="dependency-table"
+                               id="dependency-table" placeholder="dependency"/>
+                    </div>
                 </div>
             </div>
             <!--header box end -->
@@ -111,7 +119,20 @@
                         <label>Source:</label>
 
                         <div class="input-group">
-                            <input type="text" class="form-control pull-right" id="source@" name="source@"/>
+                            <div class="pull-left" style="width: 30%;">
+                                <select class="selectpicker form-control" id="source-type@"
+                                        name="source-type@">
+                                    <option value="array">Array</option>
+                                    <option value="relation">Relation</option>
+                                    <option value="path">Path</option>
+                                    <option value="index">Index</option>
+                                </select>
+                            </div>
+
+                            <div class="pull-right" style="width: 68%;">
+                                <input class="form-control" type="text" id="source@" name="source@"/>
+                            </div>
+
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -159,8 +180,8 @@
 </form>
 <!--  MODALS  -->
 <!-- Add Domain Modal -->
-<form>
-    <div id="addDomainModal" class="modal fade" role="dialog">
+<div id="addDomainModal" class="modal fade" role="dialog">
+    <form>
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -184,11 +205,11 @@
             </div>
 
         </div>
-    </div>
-</form>
+    </form>
+</div>
 <!-- Delete Domain Modal -->
-<form>
-    <div id="deleteDomainModal" class="modal fade" role="dialog">
+<div id="deleteDomainModal" class="modal fade" role="dialog">
+    <form>
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -210,8 +231,8 @@
             </div>
 
         </div>
-    </div>
-</form>
+    </form>
+</div>
 <!-- Edit Domain Modal -->
 <form id="editDomainModalForm">
     <div id="editDomainModal" class="modal fade" role="dialog" data-backdrop="static">

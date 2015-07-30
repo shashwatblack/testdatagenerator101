@@ -83,6 +83,7 @@ class DomainConfController {
             JSONObject newObject = new JSONObject()
 
             newObject.put("name", params.get("table-name"));
+            newObject.put("dependency", params.get("dependency-table"));
 
             JSONArray fields = new JSONArray();
 
@@ -93,8 +94,11 @@ class DomainConfController {
                     field.put("field_name", params.get("field-name" + fieldCounter))
                     field.put("type", params.get("field-data-type" + fieldCounter))
 
-                    if (params.get("field-data-type" + fieldCounter) == "string")
-                        field.put("source", params.get("source" + fieldCounter))
+                    if (params.get("field-data-type" + fieldCounter) == "string") {
+                        JSONObject sourceObject = new JSONObject()
+                        sourceObject.put(params.get("source-type" + fieldCounter), params.get("source" + fieldCounter))
+                        field.put("source", sourceObject)
+                    }
                     else {
                         field.put("lower_range", params.get("range-begin" + fieldCounter))
                         field.put("upper_range", params.get("range-end" + fieldCounter))
