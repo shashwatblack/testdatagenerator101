@@ -79,7 +79,7 @@ grails.project.dependency.resolution = {
         //compile ":handlebars-asset-pipeline:1.3.0.3"
 
         //elfinder file manager plugin
-        compile ":elfinder-connector:0.1"
-        compile ":elfinder-resources:2.0.0"
+        //compile ":elfinder-connector:0.1"
+        //compile ":elfinder-resources:2.0.0"
     }
 }
