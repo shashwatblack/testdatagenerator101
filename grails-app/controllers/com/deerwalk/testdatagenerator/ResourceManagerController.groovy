@@ -5,7 +5,8 @@ import grails.converters.JSON
 class ResourceManagerController {
 
     def index() {
-        redirect(action: 'list', params: [path: '/'])
+        //redirect(action: 'list', params: [path: '/'])
+        redirect(action: 'explorer')
     }
 
     def list(String path) {
@@ -38,7 +39,7 @@ class ResourceManagerController {
         render { [response: success] } as JSON
     }
 
-    def elfinder() {}
+    def explorer() {}
 }
 
 

@@ -48,7 +48,7 @@ body {
 }
 
 #tdgLogo {
-	background-color: #4b2b61;
+	background-color: #25395c/*4b2b61*/;
 }
 
 /* replace with .no-boxshadow body if you have modernizr available */
@@ -65,7 +65,7 @@ body {
 }
 
 a:link, a:visited, a:hover {
-	color: #4b2b61;
+	color: #25395c/*4b2b61*/;
 }
 
 a:hover, a:active {
@@ -73,7 +73,7 @@ a:hover, a:active {
 }
 
 h1 {
-	color: #4b2b61;
+	color: #25395c/*4b2b61*/;
 	font-weight: normal;
 	font-size: 1.25em;
 	margin: 0.8em 0 0.3em 0;
@@ -108,7 +108,7 @@ img {
 }
 
 .footer {
-	background: #4b2b61;
+	background: #25395c/*4b2b61*/;
 	color: #ece5f3;
 	clear: both;
 	font-size: 0.8em;

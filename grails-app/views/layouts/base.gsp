@@ -34,7 +34,7 @@ body {
     padding-bottom:50px;   /* Height of the footer element */
 }
 #footer {
-    background: #4b2b61;
+    background: #25395c/*4b2b61*/;
     color: #ece5f3;
     font-size: 0.8em;
     padding: 18px;
@@ -176,7 +176,7 @@ background-repeat: no-repeat !important;
 background-attachment: fixed;">
 <div id="wrapper">
     <div id="header">
-        <div id="tdgLogo" role="banner" style="padding: 20px;background-color: #4b2b61;">
+        <div id="tdgLogo" role="banner" style="padding: 20px;background-color: #25395C /*#4b2b61*/;">
             <asset:image src="banner-logo.png" alt="Test Data Generator"
                          style="height:60px; !important"/>
         </div>
