@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="layout" content="base"/>
-    <title>Elfinder Resource Manager</title>
+    <title>Resource Manager</title>
 
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/AdminLTE.css" type="text/css" rel="stylesheet">

@@ -81,7 +81,7 @@
                 <!--button type="button" class="btn btn-primary btn-lg" style="width:100%" name="nextButton" onclick="nextButtonClicked()">
                     Next
                 </button-->
-                <div id="resultTables">
+                <div id="resultTables" style="margin-bottom: 40px;">
                     <g:each in="${allTables}" var="table">
                         <table class="display " id="resultTable_${table.key}" cellspacing="0" style="width:100%">
                             <thead>
