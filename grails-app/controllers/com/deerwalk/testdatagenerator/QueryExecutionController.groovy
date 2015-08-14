@@ -82,7 +82,8 @@ class QueryExecutionController {
     }
 
     private def List readCSV(filePath) {
-        CSVReader csvReader = new CSVReader(new FileReader(filePath))
+        //String delimeter =
+        CSVReader csvReader = new CSVReader(new FileReader(filePath), "%".charAt(0))
         //CSVReader csvReader = new CSVReader(new FileReader(filePaths.get(0).toString()))
         def fieldNames = []
         def allEntries = csvReader.readAll();
