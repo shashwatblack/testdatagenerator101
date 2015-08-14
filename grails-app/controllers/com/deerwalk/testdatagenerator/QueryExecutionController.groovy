@@ -6,6 +6,8 @@ import com.major.antlrTest.domainConfiguration.MapGenerate
 import com.opencsv.CSVReader
 import grails.converters.JSON
 import org.apache.commons.io.FileUtils
+import org.json.simple.JSONObject
+import org.json.simple.parser.JSONParser
 
 import java.nio.file.Path
 import groovy.io.FileType
@@ -38,25 +40,26 @@ class QueryExecutionController {
             } catch (Exception ex) { ex.printStackTrace()}
             try {
                 // clean output directory to avoid past results messing up current ones
-                FileUtils.cleanDirectory(outputDir)
+                //FileUtils.cleanDirectory(outputDir) //commented because is deleted in backend
                 filePaths = MyExprTest.executeQuery(query, domain, defaultNumData)  //need to pass outputDir //(done)and numData
                                                                     //also need to omit use or assignment of filePaths
                 // get all the files created by executing the query - all tables in output
                 outputDir.eachFileRecurse (FileType.FILES) { file ->
                     // read current file in iteration
-                    def returnedData = readCSV(file)
-                    fieldNames = returnedData[0]
-                    allEntries = returnedData[1]
+                    // if file is hidden, continue
+                    if (!file.isHidden()) {
+                        def returnedData = readCSV(file, domain)
+                        fieldNames = returnedData[0]
+                        allEntries = returnedData[1]
 
-                    // store in big array
-                    def tableName = file.toString().replaceAll(outputDirPath, "").replaceAll(".csv","")
-                    allTables.(tableName.toString()) = [
-                            tablefields: fieldNames,
-                            tabledata: allEntries.toArray()]
+                        // store in big array
+                        def tableName = file.toString().replaceAll(outputDirPath, "").replaceAll(".csv", "")
+                        allTables.(tableName.toString()) = [
+                                tablefields: fieldNames,
+                                tabledata  : allEntries.toArray()]
 
-
-                    outputFilesList << tableName
-
+                        outputFilesList << tableName
+                    }
                 }
                 defaultTable = outputFilesList.get(0).toString() // or use some other logic to determine defaultTable
                 //CSVReader csvReader = new CSVReader(new FileReader(filePaths.get(0).toString()))
@@ -81,9 +84,11 @@ class QueryExecutionController {
          tableData: allEntries.toArray(), tableNameList: outputFilesList, defaultTable: defaultTable]
     }
 
-    private def List readCSV(filePath) {
-        //String delimeter =
-        CSVReader csvReader = new CSVReader(new FileReader(filePath), "%".charAt(0))
+    private def List readCSV(filePath, domainName) {
+        String DomainPath = "src/main/resources/domain_config/" + domainName.toString() + ".json";
+        JSONObject jsonObjectMain = (JSONObject) (new JSONParser()).parse(new FileReader(DomainPath));
+        String outputDelimiter = (String) jsonObjectMain.get("output_delimiter");
+        CSVReader csvReader = new CSVReader(new FileReader(filePath), outputDelimiter.charAt(0))
         //CSVReader csvReader = new CSVReader(new FileReader(filePaths.get(0).toString()))
         def fieldNames = []
         def allEntries = csvReader.readAll();
