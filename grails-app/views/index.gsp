@@ -11,6 +11,7 @@
         min-height: calc(100vh - 260px);
         display: flex;
         align-items: center;
+        padding-bottom: 20px;
     }
 
     h2 {
@@ -74,6 +75,8 @@
             <ul>
                 <li class="controller"><g:link controller="DomainConf" action="add">Domain Configuration</g:link></li>
                 <li class="controller"><g:link controller="DomainSelection" action="index">Query Execution</g:link></li>
+                <li class="controller"><g:link controller="DomainSelection" action="index">Data Blinding</g:link></li>
+                <li class="controller"><g:link controller="ResourceManager" action="index">Resource Manager</g:link></li>
             </ul>
         </div>
     </div>

@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta name="layout" content="base"/>
-    <link href="../../../web-app/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <title>Domain Saved</title>
 </head>
 

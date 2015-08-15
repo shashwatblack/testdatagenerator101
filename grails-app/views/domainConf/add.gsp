@@ -62,15 +62,22 @@
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1
     col-sm-10 col-xs-10 col-xs-offset-1">
             <div class="box box-primary" style="width: 90%; margin-left:5%; padding:2%">
-                <div class="box-header form-group">
+                <div class="box-header form-group" style="margin: 0">
                     <div style="width: 60%; display: inline-block;">
                         <input class="form-control input input-lg" type="text" name="table-name"
-                               id="table-name" placeholder="table name"/>
+                               id="table-name" placeholder="Table Name"/>
                     </div>
 
-                    <div style="width: 38%; display: inline-block;" class="pull-right">
-                        <input class="form-control input input-lg" type="text" name="dependency-table"
-                               id="dependency-table" placeholder="dependency"/>
+                    <div style="width: 60%; display: inline-block; margin-top: 10px;">
+                        <input class="form-control input" type="text" name="dependency-table"
+                               id="dependency-table" placeholder="Dependency Table Name"/>
+                    </div>
+                    <div style="width: 60%; display: inline-block; margin-top: 10px;">
+                        <input class="form-control input" type="text" name="source-csv-path"
+                               id="source-csv-path" placeholder="Source CSV Path" style="width: 75%; display: inline-block;"/>
+                        <input class="form-control input" type="text" name="source-csv-delimiter"
+                               id="source-csv-delimiter" placeholder="Delimiter" style="width: 23%; float:right; display: inline-block;"
+                               onkeypress="this.value=''"/>
                     </div>
                 </div>
             </div>
@@ -111,6 +118,25 @@
                             <label style="width:10%; text-align:center; margin-top:5px; font-size:initial;">-</label>
                             <input type="text" class="form-control pull-right" id="range-end@" name="range-end@"
                                    style="width: 45%"/>
+                        </div>
+                        <!-- /.input group -->
+                    </div>
+
+                    <div class="form-group invisible" id="date-group@">
+                        <div style="width:70%">
+                            <label>Range:</label>
+                            <label style="width: 30%;" class="pull-right">Format:</label>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="date-range-begin@"
+                                       name="date-range-begin@" style="width: 30%"/>
+                                <label style="width:5%; text-align:center; margin-top:5px; font-size:initial;">-</label>
+                                <input type="text" class="form-control" id="date-range-end@" name="date-range-end@"
+                                       style="width: 30%; display: inline-block; float: initial;"/>
+                                <label style="width:5%; text-align:center; margin-top:5px; font-size:initial;">&nbsp;</label>
+                                <input type="text" class="form-control" id="date-range-format@" name="date-range-format@"
+                                       style="width: 30%; float: right" value="yyyy-dd-MM"/>
+                            </div>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -194,6 +220,12 @@
                     <p>Enter the domain name (no extensions)</p>
                     <input type="text" class="form-control" id="new-domain-name" name="new-domain-name"
                            style="width: 45%" autofocus/>
+
+                    <p></p>
+
+                    <p>Enter the delimiter to use (for query outputs)</p>
+                    <input type="text" class="form-control" id="output-delimiter" name="output-delimiter"
+                           style="width: 45%" value="," onkeypress="this.value = ''"/>
                 </div>
 
                 <div class="modal-footer">

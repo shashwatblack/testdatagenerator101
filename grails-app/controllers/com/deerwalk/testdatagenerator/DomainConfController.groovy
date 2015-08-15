@@ -30,13 +30,22 @@ class DomainConfController {
         render(params)
     }
 
-    def addNewDomain(String domainName) {
+    def addNewDomain(String domainName, String outputDelimiter) {
         domainName = 'src/main/resources/domain_config/' + domainName
         boolean success = new File(domainName).createNewFile()
         if (success) {
             // write an empty json array to initialize the file.
             FileWriter fileWriter = new FileWriter(domainName)
-            fileWriter.write('[]')
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("output_delimiter", outputDelimiter)
+            jsonObject.put("tables", new JSONArray());
+
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String uglyJSON = jsonObject.toJSONString();
+            JsonParser jp = new JsonParser();
+            JsonElement je = jp.parse(uglyJSON);
+            String prettyJSON = gson.toJson(je);
+            fileWriter.write(prettyJSON)
             fileWriter.flush()
             fileWriter.close()
         }
@@ -79,11 +88,17 @@ class DomainConfController {
         String selectedDomain = params.get("domainList")
         JSONParser jsonParser = new JSONParser()
         try {
-            JSONArray jsonArray = (JSONArray) jsonParser.parse(new FileReader("src/main/resources/domain_config/" + selectedDomain + ".json"))
+            JSONObject domainObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/domain_config/" + selectedDomain + ".json"))
+            JSONArray jsonArray = (JSONArray) domainObject.get("tables")
             JSONObject newObject = new JSONObject()
 
             newObject.put("name", params.get("table-name"));
             newObject.put("dependency", params.get("dependency-table"));
+
+            JSONObject table_source = new JSONObject();
+            table_source.put("path", params.get("source-csv-path"));
+            table_source.put("delimiter", params.get("source-csv-delimiter"));
+            newObject.put("source", table_source);
 
             JSONArray fields = new JSONArray();
 
@@ -98,6 +113,11 @@ class DomainConfController {
                         JSONObject sourceObject = new JSONObject()
                         sourceObject.put(params.get("source-type" + fieldCounter), params.get("source" + fieldCounter))
                         field.put("source", sourceObject)
+                    }
+                    else if (params.get("field-data-type" + fieldCounter) == "date") {
+                        field.put("lower_range", params.get("date-range-begin" + fieldCounter))
+                        field.put("upper_range", params.get("date-range-end" + fieldCounter))
+                        field.put("date_format", params.get("date-range-format" + fieldCounter))
                     }
                     else {
                         field.put("lower_range", params.get("range-begin" + fieldCounter))
@@ -116,12 +136,14 @@ class DomainConfController {
             }
             newObject.put("fields", fields)
 
-            //append new table to current domain data
+            //append new table to current domain tables
             jsonArray.add(newObject);
-            //write jsonArray back to file
+            //append jsonArray to existing domain data
+            domainObject.put("tables", jsonArray);
+            //write domainObject back to file
             FileWriter fileWriter = new FileWriter("src/main/resources/domain_config/" + selectedDomain + ".json")
             Gson gson = new GsonBuilder().setPrettyPrinting().create();
-            String uglyJSON = jsonArray.toJSONString();
+            String uglyJSON = domainObject.toJSONString();
             JsonParser jp = new JsonParser();
             JsonElement je = jp.parse(uglyJSON);
             String prettyJSON = gson.toJson(je);

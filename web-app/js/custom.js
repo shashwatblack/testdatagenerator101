@@ -80,25 +80,48 @@ function attachSelectPickerChangeEvent(sno) {
         var selectedType = ($("#field-data-type" + sno + " option:selected").text());
         if (selectedType == 'String') {
             $("#range-group" + sno).addClass("invisible");
+            $("#date-group" + sno).addClass("invisible");
             $("#source-group" + sno).removeClass("invisible");
+
+        } else if (selectedType == 'Date') {
+            $("#range-group" + sno).addClass("invisible");
+            $("#date-group" + sno).removeClass("invisible");
+            $("#source-group" + sno).addClass("invisible");
 
         } else {
             $("#range-group" + sno).removeClass("invisible");
+            $("#date-group" + sno).addClass("invisible");
             $("#source-group" + sno).addClass("invisible");
 
         }
 
     });
+//
+//    $("#source-type" + sno).change(function (event) {
+//
+//        var selectedType = ($("#source-type" + sno + " option:selected").text());
+//        if (selectedType == 'Path:Delimiter') {
+//            $("#path-source" + sno).removeClass("invisible");
+//            $("#not-path-source" + sno).addClass("invisible");
+//
+//        } else {
+//            $("#path-source" + sno).addClass("invisible");
+//            $("#not-path-source" + sno).removeClass("invisible");
+//
+//        }
+//
+//    });
 }
 
 function addDomain() {
     var newDomainName = $("#new-domain-name").val();
     if (newDomainName != "") {
+        var outputDelimiter = $("#output-delimiter").val();
         newDomainName = newDomainName + ".json";
         $.ajax({
             type: 'POST',
             url: '/TestDataGenerator101/domainConf/addNewDomain',
-            data: {domainName: newDomainName},
+            data: {domainName: newDomainName, outputDelimiter: outputDelimiter},
             success: (function (response) {
                 if (response == 'false') {
                     //alert('Domain file already exists.')
