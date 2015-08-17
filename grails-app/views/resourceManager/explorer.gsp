@@ -13,14 +13,27 @@
 
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/AdminLTE.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="../plugins/jquery-ui-themes-1.11.4/themes/smoothness/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" media="screen"
+          href="../plugins/jquery-ui-themes-1.11.4/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" media="screen" href="../plugins/elfinder/css/elfinder.min.css">
 
-    %{--<script src="../js/jquery-2.1.3.min.js"></script>--}%
-    <script src="../js/jquery-1.6.2.min.js"></script>
+    %{--<script src="../js/jquery-1.6.2.min.js"></script>--}%
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script>
+        // for elfinder exception. as .browser was deprecated in jQuery 1.9
+        jQuery.browser = {};
+        (function () {
+            jQuery.browser.msie = false;
+            jQuery.browser.version = 0;
+            if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+                jQuery.browser.msie = true;
+                jQuery.browser.version = RegExp.$1;
+            }
+        })();
+    </script>
     <script src="../js/bootstrap.min.js"></script>
 
-    <script src="../plugins/jquery-ui-1.11.4/jquery-ui.min.js" ></script>
+    <script src="../plugins/jquery-ui-1.11.4/jquery-ui.min.js"></script>
     <script type="text/javascript" src="../plugins/elfinder/js/elfinder.min.js"></script>
 
     %{-- For Elfinder Resources --}%
@@ -32,20 +45,20 @@
 
 
     <style>
-        .ui-widget-content {
-            background: #eee;
-        }
+    .ui-widget-content {
+        background: #eee;
+    }
     </style>
 </head>
 
 <body>
 <script type="text/javascript" charset="utf-8">
     options = {
-        url : '${g.createLink(controller:'elfinderConnector')}',  // connector URL (REQUIRED)
-        height: $(window).height()-209
+        url: '${g.createLink(controller:'elfinderConnector')}',  // connector URL (REQUIRED)
+        height: $(window).height() - 209
     };
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         var elfinder = $('#elfinder').elfinder(options).elfinder('instance');
 
         // hide elfinder backlink because I'm evil
@@ -56,14 +69,14 @@
 
     });
 
-//    $(window).resize(function(){
-//        console.log('resized');
-//        var win_height = $(window).height()-209;
-//        var elfinder = $('#elfinder');
-//        if( elfinder.height() != win_height ){
-//            elfinder.height(win_height).resize();
-//        }
-//    });
+    //    $(window).resize(function(){
+    //        console.log('resized');
+    //        var win_height = $(window).height()-209;
+    //        var elfinder = $('#elfinder');
+    //        if( elfinder.height() != win_height ){
+    //            elfinder.height(win_height).resize();
+    //        }
+    //    });
 
 </script>
 
