@@ -28,7 +28,7 @@
                 <li id="nav-home"><a href="/TestDataGenerator101/">Home</a></li>
                 <li id="nav-domainconf"><a href="/TestDataGenerator101/domainConf/add">Domain Configuration</a></li>
                 <li id="nav-queryexec"><a href="/TestDataGenerator101/domainSelection/select">Query Execution</a></li>
-                <li id="nav-datablind"><a href="#">Data Blinding</a></li>
+                <li id="nav-datablind"><a href="/TestDataGenerator101/blindingData/blind">Data Blinding</a></li>
             </ul>
         </div>
     </div>

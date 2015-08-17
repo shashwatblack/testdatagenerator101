@@ -75,7 +75,7 @@
             <ul>
                 <li class="controller"><g:link controller="DomainConf" action="add">Domain Configuration</g:link></li>
                 <li class="controller"><g:link controller="DomainSelection" action="index">Query Execution</g:link></li>
-                <li class="controller"><g:link controller="DomainSelection" action="index">Data Blinding</g:link></li>
+                <li class="controller"><g:link controller="BlindingData" action="index">Data Blinding</g:link></li>
                 <li class="controller"><g:link controller="ResourceManager" action="index">Resource Manager</g:link></li>
             </ul>
         </div>
