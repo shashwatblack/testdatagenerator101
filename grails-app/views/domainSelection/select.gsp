@@ -50,7 +50,8 @@
     <div class="row">
         <div class="col-lg-4 col-lg-offset-4 col-sm-6 col-sm-offset-3
                     col-md-6 col-md-offset-3 col-xs-10 col-xs-offset-1" align="center">
-            <button type="button" class="btn btn-primary btn-lg" style="width:100%" name="nextButton" onclick="nextButtonClicked()">
+            <button type="button" class="btn btn-primary btn-lg" style="width:100%; background-color: #25395C; border-color: #25395C;"
+                    name="nextButton" onclick="nextButtonClicked()">
                 Next
             </button>
         </div>

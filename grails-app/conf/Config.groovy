@@ -86,7 +86,7 @@ grails.hibernate.pass.readonly = false
 grails.hibernate.osiv.readonly = false
 
 //~~~~~~~~~~~~~~~~ Added by Shashwat ~~~~~~~~~~~~~~~~~ //
-grails.plugin.elfinder.rootDir = "src/"
+grails.plugin.elfinder.rootDir = "src/main/resources"
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ //
 
 environments {

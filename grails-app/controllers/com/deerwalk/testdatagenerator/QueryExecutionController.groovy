@@ -23,7 +23,7 @@ class QueryExecutionController {
     def index() {}
 
     def execute(String domain, String query, String numData) {
-        def defaultQuery = "table_name1.name=\"A.*\""
+        def defaultQuery = "table_name2.name=\"A.*\""
         def defaultNumData = 50
         def outputFilesList = []
         def defaultTable = ""

@@ -87,7 +87,6 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label>Field Name:</label>
-
                         <div class="input-group">
                             <input type="text" class="form-control pull-right" id="field-name@"
                                    name="field-name@"/>
