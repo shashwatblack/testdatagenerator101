@@ -14,14 +14,14 @@
     <link href="../css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
     <link href="../css/AdminLTE.css" type="text/css" rel="stylesheet">
     <link href="../css/domainConfAddCustom.css" type="text/css" rel="stylesheet">
-    <link href="../plugins/iCheck/skins/square/blue.css" type="text/css" rel="stylesheet">
-    <link href="../plugins/toastr/toastr.css" type="text/css" rel="stylesheet">
+    <link href="../web-plugins/iCheck/skins/square/blue.css" type="text/css" rel="stylesheet">
+    <link href="../web-plugins/toastr/toastr.css" type="text/css" rel="stylesheet">
 
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-select.min.js"></script>
-    <script src="../plugins/iCheck/icheck.js"></script>
-    <script src="../plugins/toastr/toastr.js"></script>
+    <script src="../web-plugins/iCheck/icheck.js"></script>
+    <script src="../web-plugins/toastr/toastr.js"></script>
     <script src="../js/custom.js"></script>
 </head>
 

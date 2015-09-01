@@ -13,14 +13,14 @@
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/bootstrap-select.min.css" type="text/css" rel="stylesheet">
     <link href="../css/jquery.dataTables.css" type="text/css" rel="stylesheet">
-    <link href="../plugins/toastr/toastr.css" type="text/css" rel="stylesheet">
+    <link href="../web-plugins/toastr/toastr.css" type="text/css" rel="stylesheet">
     <link href="../css/execute_custom.css" type="text/css" rel="stylesheet">
 
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/bootstrap-select.min.js"></script>
-    <script src="../plugins/toastr/toastr.js"></script>
+    <script src="../web-plugins/toastr/toastr.js"></script>
     <script src="../js/execute_custom.js"></script>
 
     <script type="text/javascript">

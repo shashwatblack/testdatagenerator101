@@ -14,8 +14,8 @@
     <link href="../css/bootstrap.min.css" type="text/css" rel="stylesheet">
     <link href="../css/AdminLTE.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen"
-          href="../plugins/jquery-ui-themes-1.11.4/themes/smoothness/jquery-ui.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="../plugins/elfinder/css/elfinder.min.css">
+          href="../web-plugins/jquery-ui-themes-1.11.4/themes/smoothness/jquery-ui.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="../web-plugins/elfinder/css/elfinder.min.css">
 
     %{--<script src="../js/jquery-1.6.2.min.js"></script>--}%
     <script src="../js/jquery-2.1.3.min.js"></script>
@@ -33,8 +33,8 @@
     </script>
     <script src="../js/bootstrap.min.js"></script>
 
-    <script src="../plugins/jquery-ui-1.11.4/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../plugins/elfinder/js/elfinder.min.js"></script>
+    <script src="../web-plugins/jquery-ui-1.11.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../web-plugins/elfinder/js/elfinder.min.js"></script>
 
     %{-- For Elfinder Resources --}%
     %{--<r:require modules="elfinder" />--}%
