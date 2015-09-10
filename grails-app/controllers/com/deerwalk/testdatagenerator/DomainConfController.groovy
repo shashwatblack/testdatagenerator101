@@ -22,10 +22,6 @@ class DomainConfController {
         [domainNameList: domainNameList, defaultDomain: domainNameList[0], saveSuccess: saveSuccess]
     }
 
-    def displayPOSTvariables() {
-        render(params)
-    }
-
     def addNewDomain(String domainName, String outputDelimiter) {
         domainName = 'src/main/resources/domain_config/' + domainName
         boolean success = new File(domainName).createNewFile()
