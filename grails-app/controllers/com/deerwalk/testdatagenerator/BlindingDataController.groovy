@@ -1,6 +1,7 @@
 package com.deerwalk.testdatagenerator
 
 import np.com.shashwatblack.datablinder.BatchBlinder
+import np.com.shashwatblack.datablinder.FindTypeOfData
 
 class BlindingDataController {
 
@@ -48,6 +49,10 @@ class BlindingDataController {
             new File( grailsApplication.config.images.location.toString() ).mkdirs()
             f.transferTo( new File( "src/main/resources/blinder/input/inputFile.csv" ) )
 //            f.transferTo( new File( "src/Upload/" + f.getOriginalFilename() ) )
+
+            //upload the default blinding logic.
+            FindTypeOfData.FindTheType("src/main/resources/blinder/input/inputFile.csv", "src/main/resources/blinder/jsonFormat/BlinderLogic.json")
+
         }
         else {
             flash.message = 'file cannot be empty'

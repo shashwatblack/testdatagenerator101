@@ -51,9 +51,9 @@
     <div class="message">${flash.message}</div>
     <div id="success"></div>
 
-    <div class="container" >
+    <div class="box box-primary" >
         <label>Data to blind</label>
-        <table class="table table-bordered" style="border-width: 3px; border-bottom-color: dodgerblue; border-top-color: dodgerblue ">
+        <table class="table table-bordered">
 
             <thead>
             <tr>
@@ -77,7 +77,7 @@
     </div>
 
 
-    <div class="container-fluid" >
+    <div class="box box-primary" >
         <table class="table table-bordered">
             <tbody>
             <tr>
@@ -95,7 +95,7 @@
         <table class="table table-bordered" style="border-width: 3px; border-bottom-color: dodgerblue; border-top-color: dodgerblue ">
             <tbody>
             <td><label>OUTPUT FILE</label></td>
-            <td><button type="button" class="btn btn-warning glyphicon-download"><g:link action="download" >Download Output</g:link></button></td>
+            <td><button type="button" class="btn btn-primary glyphicon-download"><g:link action="download" >Download Output</g:link></button></td>
             </tbody>
         </table>
 
