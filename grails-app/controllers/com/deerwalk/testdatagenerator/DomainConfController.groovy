@@ -13,21 +13,13 @@ import org.json.simple.parser.JSONParser
 class DomainConfController {
 
     def index() {
-        redirect(action: 'add')
+        redirect(action: 'add', params:[saveSuccess: "false"])
     }
 
-    def add() {
+    def add(String saveSuccess) {
         Utils utils = new Utils()
         List<String> domainNameList = utils.domainNameList
-        [domainNameList: domainNameList, defaultDomain: domainNameList[0]]
-    }
-
-    def addhtml() {
-        render(file: "grails-app/views/domainConf/add.html", contentType: 'text/html')
-    }
-
-    def displayPOSTvariables() {
-        render(params)
+        [domainNameList: domainNameList, defaultDomain: domainNameList[0], saveSuccess: saveSuccess]
     }
 
     def addNewDomain(String domainName, String outputDelimiter) {
@@ -87,6 +79,7 @@ class DomainConfController {
         if (!params.containsKey("domainList")) return
         String selectedDomain = params.get("domainList")
         JSONParser jsonParser = new JSONParser()
+        String saveSuccess
         try {
             JSONObject domainObject = (JSONObject) jsonParser.parse(new FileReader("src/main/resources/domain_config/" + selectedDomain + ".json"))
             JSONArray jsonArray = (JSONArray) domainObject.get("tables")
@@ -150,10 +143,13 @@ class DomainConfController {
             fileWriter.write(prettyJSON)
             fileWriter.flush()
             fileWriter.close()
+            saveSuccess = "saved"
 
         } catch (Exception ex) {
             ex.printStackTrace()
+            saveSuccess = "error"
         }
+        redirect(action: 'add', params: [saveSuccess: saveSuccess])
     }
 
 }

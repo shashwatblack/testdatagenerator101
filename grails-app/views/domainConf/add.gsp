@@ -27,6 +27,16 @@
 </head>
 
 <body>
+<script type="text/javascript">
+    var saveSuccess = "${saveSuccess}";
+    if (saveSuccess == "saved") {
+        toastr.success("The table has been added in the domain successfully")
+    } else if (saveSuccess == "error") {
+        toastr.error("Some error occurred. Try Again.")
+    } else {
+//        toastr.info("Somethings are meant to remain invisible.")
+    }
+</script>
 <div id="page-body" style="min-height: 70%; margin-top:30px; margin-bottom:15px;">
 <div class="container">
 <form action="saveDomainConf" method="POST">
@@ -40,13 +50,13 @@
 
             <div class="input-group pull-right" style="width:50%; padding-left:10px;">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editDomainModal"
-                        style="width:30%; margin-right: 5%;" name="editDomainButton"
+                        style="width:30%; margin-right: 3%;" name="editDomainButton"
                         onclick="fetchAndPlaceDomain();
                         $('.domainNamePlaceholder').text($('#domainList option:selected').text())">
                     Edit
                 </button>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteDomainModal"
-                        style="width:30%; margin-right: 5%;" name="deleteDomainButton"
+                        style="width:30%; margin-right: 3%;" name="deleteDomainButton"
                         onclick="$('.domainNamePlaceholder').text($('#domainList option:selected').text())">
                     Delete
                 </button>
