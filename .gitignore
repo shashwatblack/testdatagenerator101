@@ -4,4 +4,7 @@ target
 *.iml
 *.logs
 out/
-
+src/main/resources/domain_config/newDomain.json
+src/main/resources/output/*.csv
+src/main/resources/acceptedTemporaryStore.csv
+src/main/resources/unacceptedTemporaryStore.csv
