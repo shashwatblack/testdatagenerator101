@@ -39,8 +39,13 @@
 </script>
 
 %{-- SOURCE PATH FILES --}%
-<datalist id="sourcePathFiles">
-    <g:each in="${sourcePathFiles}" var="pathFile">
+<datalist id="tableSourceFiles">
+    <g:each in="${tableSourceFiles}" var="pathFile">
+        <option value="${pathFile}">
+    </g:each>
+</datalist>
+<datalist id="fieldSourceFiles">
+    <g:each in="${fieldSourceFiles}" var="pathFile">
         <option value="${pathFile}">
     </g:each>
 </datalist>
@@ -95,7 +100,7 @@
                     <div style="width: 60%; display: inline-block; margin-top: 10px;">
                         <input class="form-control input" type="text" name="source-csv-path"
                                id="source-csv-path" placeholder="Source CSV Path"
-                               autocomplete="off" style="width: 75%; display: inline-block;"/>
+                               autocomplete="off" list="tableSourceFiles" style="width: 75%; display: inline-block;"/>
                         <input class="form-control input" type="text" name="source-csv-delimiter"
                                id="source-csv-delimiter" placeholder="Delimiter"
                                autocomplete="off" style="width: 23%; float:right; display: inline-block;"

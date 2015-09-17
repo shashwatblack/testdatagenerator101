@@ -124,7 +124,7 @@ function attachSelectPickerChangeEvent(sno) {
 
         var selectedType = ($("#source-type" + sno + " option:selected").text());
         if (selectedType == 'Path') {
-            $("#source" + sno).attr("list", "sourcePathFiles");
+            $("#source" + sno).attr("list", "fieldSourceFiles");
         } else {
             $("#source" + sno).attr("list", "");
         }
