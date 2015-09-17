@@ -1,55 +1,26 @@
 {
   "tables": [
     {
-      "name": "Data1",
+      "dependency": "table_name2",
+      "name": "table_name1",
       "fields": [
         {
           "field_name": "name",
-          "unique": "true",
-          "source": "src/main/resources/name.csv",
+          "unique": "false",
+          "source": {
+            "array": "{amit, dipesh, dinesh, dipak, anita, deepika, dipti, dinank}"
+          },
           "type": "String"
         },
         {
-          "field_name": "caste",
-          "source": "src/main/resources/last.csv",
-          "type": "String"
-        },
-        {
-          "field_name": "age",
-          "lower_range": "1",
+          "autoincrement": "true",
+          "field_name": "id",
+          "lower_range": "4",
           "upper_range": "125",
           "type": "integer"
-        },
-        {
-          "field_name": "Address",
-          "source": "src/main/resources/address.csv",
-          "type": "String"
-        },
-        {
-          "field_name": "DOB",
-          "lower_range": "1995/10/21",
-          "upper_range": "2055/12/12",
-          "type": "date"
-        }
-      ]
-    },
-    {
-      "name": "table_name2",
-      "fields": [
-        {
-          "field_name": "name",
-          "unique": "true",
-          "source": "src/main/resources/name.csv",
-          "type": "String"
-        },
-        {
-          "field_name": "salary",
-          "lower_range": "100.00",
-          "upper_range": "200000.55",
-          "type": "double"
         }
       ]
     }
   ],
-  "output_delimiter": "%"
+  "output_delimiter": ","
 }

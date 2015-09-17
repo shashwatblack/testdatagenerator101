@@ -37,7 +37,9 @@
 <div id="footer">
     <div class="footer" role="contentinfo">
         <p style="float: left">
-            Deerwalk Services Pvt. Ltd.
+            <a href="http://shashwatblack.com.np/tdgdoc/base.html#documentation" target="_blank">
+                User Documentation
+            </a>
         </p>
 
         <p style="float: right">

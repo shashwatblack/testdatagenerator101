@@ -1,149 +1,157 @@
 {
-    "output_delimiter": "%",
-    "tables": [
+  "output_delimiter": "%",
+  "tables": [
+    {
+      "name": "table_name1",
+      "dependency": "table_name2",
+      "fields": [
         {
-            "name": "table_name1",
-            "dependency": "table_name2",
-            "fields": [
-                {
-                    "field_name": "name",
-                    "type": "String",
-                    "source": {
-                        "array": "{amit, dipesh, dinesh, dipak, anita, deepika, dipti, dinank}"
-                    },
-                    "unique": "false"
-                },
-                {
-                    "field_name": "Age",
-                    "type": "integer",
-                    "source": {
-                        "relation": "table_name2.Age"
-                    }
-                },
-                {
-                    "field_name": "id",
-                    "type": "integer",
-                    "autoincrement": "true",
-                    "lower_range": "4",
-                    "upper_range": "125"
-                },
-                {
-                    "field_name": "caste",
-                    "type": "String",
-                    "source": {
-                        "relation": "table_name2.caste1"
-                    }
-                },
-                {
-                    "field_name": "Address",
-                    "type": "String",
-                    "source": {
-                        "path": "src/main/resources/address.csv"
-                    }
-                },
-                {
-                    "field_name": "DOB",
-                    "type": "date",
-                    "source": {
-                        "relation": "table_name2.DOB"
-                    }
-                },
-                {
-                    "field_name": "salary",
-                    "type": "double",
-                    "source": {
-                        "relation": "table_name2.salary"
-                    }
-                }
-            ]
+          "field_name": "name",
+          "type": "String",
+          "source": {
+            "array": "{amit, dipesh, dinesh, dipak, anita, deepika, dipti, dinank}"
+          },
+          "unique": "false"
         },
         {
-            "name": "table_name2",
-            "source": {
-                "path": "src/main/resources/input/table_nam2SourceFile.csv",
-                "delimiter": ";"
-            },
-            "fields": [
-                {
-                    "field_name": "name",
-                    "type": "String",
-                    "source": {
-                        "index": "0"
-                    }
-                },
-                {
-                    "field_name": "DOB",
-                    "type": "date",
-                    "upper_range": "2055-12-12",
-                    "lower_range": "1995-25-05",
-                    "date_format": "yyyy-dd-MM"
-                },
-                {
-                    "field_name": "Age",
-                    "type": "integer",
-                    "lower_range": "50",
-                    "upper_range": "125"
-                },
-                {
-                    "field_name": "id",
-                    "type": "integer",
-                    "autoincrement": "true",
-                    "lower_range": "1",
-                    "upper_range": "125",
-                    "unique": "true"
-                },
-                {
-                    "field_name": "caste1",
-                    "type": "String",
-                    "source": {
-                        "index": "1"
-                    }
-                },
-                {
-                    "field_name": "salary",
-                    "type": "double",
-                    "lower_range": "5000.00",
-                    "upper_range": "200000.00"
-                }
-            ]
+          "field_name": "Age",
+          "type": "integer",
+          "source": {
+            "relation": "table_name2.Age"
+          }
         },
         {
-            "name": "table_name3",
-            "source": {
-                "path": "src/main/resources/input/table_nam3SourceFile.csv",
-                "delimiter": ","
-            },
-            "fields": [
-                {
-                    "field_name": "id",
-                    "type": "integer",
-                    "autoincrement": "true",
-                    "lower_range": "1",
-                    "upper_range": "125",
-                    "unique": "true"
-                },
-                {
-                    "field_name": "name",
-                    "type": "String",
-                    "source": {
-                        "index": "0"
-                    }
-                },
-                {
-                    "field_name": "caste1",
-                    "type": "String",
-                    "source": {
-                        "index": "1"
-                    }
-                },
-                {
-                    "field_name": "salary",
-                    "type": "double",
-                    "lower_range": "100.00",
-                    "upper_range": "200000.55"
-                }
-            ]
+          "field_name": "id",
+          "type": "integer",
+          "autoincrement": "true",
+          "lower_range": "4",
+          "upper_range": "125"
+        },
+        {
+          "field_name": "caste",
+          "type": "String",
+          "source": {
+            "relation": "table_name2.caste1"
+          }
+        },
+        {
+          "field_name": "Address",
+          "type": "String",
+          "source": {
+            "path": "src/main/resources/input/field/address.csv"
+          }
+        },
+        {
+          "field_name": "DOB",
+          "type": "date",
+          "source": {
+            "relation": "table_name2.DOB"
+          }
+        },
+        {
+          "field_name": "salary",
+          "type": "double",
+          "source": {
+            "relation": "table_name2.salary"
+          }
         }
-    ]
+      ]
+    },
+    {
+      "name": "table_name2",
+      "source": {
+        "path": "src/main/resources/input/table/table_nam2SourceFile.csv",
+        "delimiter": ";"
+      },
+      "fields": [
+        {
+          "field_name": "name",
+          "type": "String",
+          "source": {
+            "index": "0"
+          }
+        },
+        {
+          "field_name": "DOB",
+          "type": "date",
+          "upper_range": "2055-12-12",
+          "lower_range": "1995-25-05",
+          "date_format": "yyyy-dd-MM"
+        },
+        {
+          "field_name": "Age",
+          "type": "integer",
+          "lower_range": "50",
+          "upper_range": "125"
+        },
+        {
+          "field_name": "id",
+          "type": "integer",
+          "autoincrement": "true",
+          "lower_range": "1",
+          "upper_range": "125",
+          "unique": "true"
+        },
+        {
+          "field_name": "caste1",
+          "type": "String",
+          "source": {
+            "index": "1"
+          }
+        },
+        {
+          "field_name": "salary",
+          "type": "double",
+          "lower_range": "5000.00",
+          "upper_range": "200000.00"
+        }
+      ]
+    },
+    {
+      "name": "table_name3",
+      "source": {
+        "path": "src/main/resources/input/table/table_nam3SourceFile.csv",
+        "delimiter": ","
+      },
+      "dependency": "table_name2",
+      "fields": [
+        {
+          "field_name": "id",
+          "type": "integer",
+          "autoincrement": "true",
+          "lower_range": "1",
+          "upper_range": "125",
+          "unique": "true"
+        },
+        {
+          "field_name": "name",
+          "type": "String",
+          "source": {
+            "index": "0"
+          }
+        },
+        {
+          "field_name": "Address",
+          "type": "String",
+          "source": {
+            "path": "src/main/resources/input/field/address.csv"
+          }
+        },
+        {
+          "field_name": "caste",
+          "type": "String",
+          "source": {
+            "relation": "table_name2.caste1"
+          }
+        },
+        {
+          "field_name": "salary",
+          "type": "double",
+          "lower_range": "100.00",
+          "upper_range": "200000.55"
+        }
+      ]
+    }
+  ]
 }
 

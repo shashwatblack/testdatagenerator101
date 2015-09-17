@@ -6,12 +6,15 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonParser
 import com.major.antlrTest.domainConfiguration.Utils
 import grails.converters.JSON
+import groovy.io.FileType
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 
 class DomainConfController {
 
+    def TABLESOURCEDIRPATH = "src/main/resources/input/table/"
+    def FIELDSOURCEDIRPATH = "src/main/resources/input/field/"
     def index() {
         redirect(action: 'add', params:[saveSuccess: "false"])
     }
@@ -19,7 +22,31 @@ class DomainConfController {
     def add(String saveSuccess) {
         Utils utils = new Utils()
         List<String> domainNameList = utils.domainNameList
-        [domainNameList: domainNameList, defaultDomain: domainNameList[0], saveSuccess: saveSuccess]
+        //////////////////////
+        def inputDir = new File(FIELDSOURCEDIRPATH)
+        List<String> fieldSourceFiles = new ArrayList<>();
+        if(!inputDir.exists()) inputDir.mkdirs()
+        inputDir.eachFileRecurse (FileType.FILES) { file ->
+            // read current file in iteration
+            // if file is hidden, continue
+            if (!file.isHidden()) {
+                fieldSourceFiles.add(file.name)
+            }
+        }
+        inputDir = new File(TABLESOURCEDIRPATH)
+        if(!inputDir.exists()) inputDir.mkdirs()
+        List<String> tableSourceFiles = new ArrayList<>();
+        inputDir.eachFileRecurse (FileType.FILES) { file ->
+            // read current file in iteration
+            // if file is hidden, continue
+            if (!file.isHidden()) {
+                tableSourceFiles.add(file.name)
+            }
+        }
+
+        //////////////////////
+        [domainNameList: domainNameList, defaultDomain: domainNameList[0],
+         saveSuccess: saveSuccess, tableSourceFiles: tableSourceFiles, fieldSourceFiles: fieldSourceFiles]
     }
 
     def addNewDomain(String domainName, String outputDelimiter) {
@@ -89,7 +116,7 @@ class DomainConfController {
             newObject.put("dependency", params.get("dependency-table"));
 
             JSONObject table_source = new JSONObject();
-            table_source.put("path", params.get("source-csv-path"));
+            table_source.put("path", TABLESOURCEDIRPATH + params.get("source-csv-path"));
             table_source.put("delimiter", params.get("source-csv-delimiter"));
             newObject.put("source", table_source);
 
@@ -104,7 +131,10 @@ class DomainConfController {
 
                     if (params.get("field-data-type" + fieldCounter) == "string") {
                         JSONObject sourceObject = new JSONObject()
-                        sourceObject.put(params.get("source-type" + fieldCounter), params.get("source" + fieldCounter))
+                        if (params.get("source-type"+fieldCounter) == "path")
+                            sourceObject.put(params.get("source-type" + fieldCounter), FIELDSOURCEDIRPATH + params.get("source" + fieldCounter))
+                        else
+                            sourceObject.put(params.get("source-type" + fieldCounter), params.get("source" + fieldCounter))
                         field.put("source", sourceObject)
                     }
                     else if (params.get("field-data-type" + fieldCounter) == "date") {
