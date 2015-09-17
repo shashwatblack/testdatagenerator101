@@ -57,49 +57,32 @@
 
             <thead>
             <tr>
-                <th>fileName</th>
-                <th>fileSource</th>
-                <th>Delete Option</th>
+                <th>FileName</th>
+                <th>Blinging Logic</th>
+                <th>Blind Data</th>
+                <th>Download</th>
+                <th>Delete</th>
                 %{--<g:sortableColumn property="query" title="Query"/>--}%
             </tr>
             </thead>
 
             <tbody>
             <g:if test="${fileResourceInstance != null}">
-                <tr>
-                    <td>${fileResourceInstance}</td>
-                    <td> /src/Upload/${fileResourceInstance}</td>
-                    <td><button class="btn btn-danger glyphicon-remove"><g:link action="deleteUploadFile"  params='[filename:"${fileResourceInstance}"]' > delete </g:link></button></td>
-                </tr>
+                %{--<g:while test="${i < fileResourceInstance.size()}">--}%
+                    <tr>
+                        <td>${fileResourceInstance}</td>
+                        <td><button type="button" class="btn btn-primary glyphicon-pencil btn-lg" data-toggle="modal" data-target="#myModal">View Blinder Logic </button></td>
+                        <td><button type="button" class="btn btn-success glyphicon glyphicon-thumbs-up"><g:link action="functionBlind" params='[fileName:"${fileResourceInstance}"]'>   BLIND   </g:link></button></td>
+                        <td><button type="button" class="btn btn-primary glyphicon-download"><g:link action="download" params='[fileName:"${fileResourceInstance}"]' >Download Output</g:link></button></td>
+                        <td><button class="btn btn-danger glyphicon-remove"><g:link action="deleteUploadFile"  params='[fileName:"${fileResourceInstance}"]' > delete </g:link></button></td>
+                    </tr>
+                    %{--<% i++ %>--}%
+                %{--</g:while>--}%
             </g:if>
             </tbody>
         </table>
     </div>
 
-
-    <div class="box box-primary" >
-        <table class="table table-bordered">
-            <tbody>
-            <tr>
-                <td><button type="button" class="btn btn-success glyphicon glyphicon-thumbs-up"><g:link action="functionBlind">   BLIND   </g:link></button>
-                    <!-- Trigger the modal with a button --></td>
-            </tr>
-            <tr> <td><button type="button" class="btn btn-primary glyphicon-pencil btn-lg" data-toggle="modal" data-target="#myModal"> View Blinder Logic </button>
-                %{--<button type="button" class="btn btn-success" onclick="myFunction()">view jason file</button>--}%</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="content">
-        <table class="table table-bordered" style="border-width: 3px; border-bottom-color: dodgerblue; border-top-color: dodgerblue ">
-            <tbody>
-            <td><label>OUTPUT FILE</label></td>
-            <td><button type="button" class="btn btn-primary glyphicon-download"><g:link action="download" >Download Output</g:link></button></td>
-            </tbody>
-        </table>
-
-    </div>
 </div>
 
 <!-- Modal -->
@@ -112,11 +95,11 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h4 class="modal-title">Blinding Logic</h4>
             </div>
-            <div class="modal-body">
-                <textarea class="form-control" rows="20" id="textMessage">${fileContent}</textarea>
+            <div class="modal-body" >
+                <textarea class="form-control" rows="20" id="textMessage">${blindingContent}</textarea>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" id="editedMoadlInButton" onclick="updateFunction()">Update</button>
+                <button type="button" class="btn btn-danger" id="editedMoadlInButton" onclick="updateFunction('${fileResourceInstance}')">Update</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
@@ -124,13 +107,14 @@
     </div>
 </div>
 
+
 <script>
-    function updateFunction() {
+    function updateFunction(inputFileName) {
         var stringToUpdate = $('#textMessage').val();
         $.ajax({
             type: 'POST',
             url: '/TestDataGenerator101/BlindingData/update',
-            data: {stringToUpdate: stringToUpdate},
+            data: {stringToUpdate: stringToUpdate, inputFileName: inputFileName},
             success: (function (response) {
                 if (response == 'false') {
                     //alert('Something\'s wrong.')
@@ -148,6 +132,7 @@
         });
         $('#myModal').modal('hide');
     }
+
 </script>
 </div>
 </body>

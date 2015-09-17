@@ -1,7 +1,7 @@
 package com.deerwalk.testdatagenerator
-
 import np.com.shashwatblack.datablinder.BatchBlinder
 import np.com.shashwatblack.datablinder.FindTypeOfData
+import org.apache.commons.lang.StringUtils
 
 class BlindingDataController {
 
@@ -9,37 +9,25 @@ class BlindingDataController {
         redirect(action: 'blind')
     }
 
-    def allowedMethods = []
-
     def blind() {
+
         def fileResourceInstance
+        def blindingContent
+        def outputContent
+
         def f = new File( "src/main/resources/blinder/input" )
         if( f.exists() ){
             f.eachFile(){ file->
-                if( !file.isDirectory() )
+                if( !file.isDirectory() ){
                     fileResourceInstance = file.name
+                    def onlyFileName = StringUtils.substringBefore(fileResourceInstance, ".")
+                    blindingContent = new File("src/main/resources/blinder/jsonFormat/"+onlyFileName+".json").text
+                    outputContent = new File("src/main/resources/blinder/output/blinded_"+onlyFileName+".csv").text
+                }
             }
         }
-        def fileContent = new File("src/main/resources/blinder/jsonFormat/BlinderLogic.json").text
 
-        def outputContent = new File("src/main/resources/blinder/output/OutputFile.csv").text
-
-        [ fileResourceInstance: fileResourceInstance, fileContent: fileContent, outputContent: outputContent ]
-    }
-
-
-    def functionBlind(){
-        BatchBlinder bct = new BatchBlinder("src/main/resources/blinder/input/inputFile.csv", "src/main/resources/blinder/jsonFormat/BlinderLogic.json","src/main/resources/blinder/output/OutputFile.csv" );
-        bct.run();
-        redirect(action: "blind")
-    }
-
-    def deleteUploadFile(){
-        def filename = params.filename
-        def file = new File( "src/main/resources/blinder/input/" + filename )
-        file.delete()
-        flash.message = "file ${filename} removed"
-        redirect(action: "blind")
+        [fileResourceInstance: fileResourceInstance, outputContent: outputContent, blindingContent: blindingContent ]
     }
 
     def upload() {
@@ -47,12 +35,18 @@ class BlindingDataController {
         if(!f.empty) {
             flash.message = 'Your file has been uploaded'
             new File( grailsApplication.config.images.location.toString() ).mkdirs()
-            f.transferTo( new File( "src/main/resources/blinder/input/inputFile.csv" ) )
+            def uploadFileName = f.getOriginalFilename()
+            def locationUpload = "src/main/resources/blinder/input/"+ uploadFileName
+            f.transferTo( new File( locationUpload ) )
 //            f.transferTo( new File( "src/Upload/" + f.getOriginalFilename() ) )
 
-            //upload the default blinding logic.
-            FindTypeOfData.FindTheType("src/main/resources/blinder/input/inputFile.csv", "src/main/resources/blinder/jsonFormat/BlinderLogic.json")
+            def onlyFileName = StringUtils.substringBefore(uploadFileName, ".")
+            //update the logic
+            FindTypeOfData.FindTheType(locationUpload, "src/main/resources/blinder/jsonFormat/"+onlyFileName+".json")
 
+            //to create new output file.
+            def file = new File("src/main/resources/blinder/output/blinded_"+onlyFileName+".csv")
+            file.createNewFile()
         }
         else {
             flash.message = 'file cannot be empty'
@@ -60,11 +54,31 @@ class BlindingDataController {
         redirect (action:"blind")
     }
 
-    def download() {
-        def fileName = "src/main/resources/blinder/output/OutputFile.csv"
-        try{
-            render(file:fileName, contentType: "text/csv", fileName: "output")
+    def update(){
+        def inputFileName= params.inputFileName
+        def stringToUpdate = params.stringToUpdate
+        flash.message = 'i am called'
+        def onlyFileName = StringUtils.substringBefore(inputFileName, ".")
+        new File("src/main/resources/blinder/jsonFormat/"+onlyFileName+".json").write(stringToUpdate)
+        redirect(action: 'blind')
+    }
 
+    def functionBlind(){
+        def tempString = params.fileName
+        def onlyFileName = StringUtils.substringBefore(tempString, ".")
+
+        BatchBlinder bct = new BatchBlinder("src/main/resources/blinder/input/"+tempString, "src/main/resources/blinder/jsonFormat/"+onlyFileName+".json","src/main/resources/blinder/output/blinded_"+onlyFileName+".csv" );
+        bct.run();
+        redirect(action: "blind")
+    }
+
+    def download() {
+        def tempString = params.fileName
+        def onlyFileName = StringUtils.substringBefore(tempString, ".")
+
+        def outputFile = "src/main/resources/blinder/output/blinded_"+onlyFileName+".csv"
+        try{
+            render(file:outputFile, contentType: "text/csv", fileName: "blinded_"+onlyFileName)
         }
         catch(Exception e)
         {
@@ -74,10 +88,21 @@ class BlindingDataController {
 
     }
 
-    def update(String stringToUpdate){
-        flash.message = 'i am called'
-        new File("src/main/resources/blinder/jsonFormat/BlinderLogic.json").write(stringToUpdate)
-        redirect(action: 'blind')
+    def deleteUploadFile(){
+        def filename = params.fileName
+        def inputFile = new File( "src/main/resources/blinder/input/" + filename )
+        inputFile.delete()
+
+        def blindingLogicFileName = StringUtils.substringBefore(filename, ".")
+        def blindingFile = new File( "src/main/resources/blinder/jsonFormat/" + blindingLogicFileName +".json" )
+        blindingFile.delete()
+
+        def outputFileName = StringUtils.substringBefore(filename, ".")
+        def outputFile = new File( "src/main/resources/blinder/output/blinded_" + outputFileName + ".csv" )
+        outputFile.delete()
+
+        flash.message = "file ${filename} removed"
+        redirect(action: "blind")
     }
 
 }
