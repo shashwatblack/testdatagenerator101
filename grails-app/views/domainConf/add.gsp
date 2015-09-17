@@ -37,6 +37,7 @@
 //        toastr.info("Somethings are meant to remain invisible.")
     }
 </script>
+
 <div id="page-body" style="min-height: 70%; margin-top:30px; margin-bottom:15px;">
 <div class="container">
 <form action="saveDomainConf" method="POST">
@@ -82,12 +83,15 @@
                         <input class="form-control input" type="text" name="dependency-table"
                                id="dependency-table" placeholder="Dependency Table Name"/>
                     </div>
+
                     <div style="width: 60%; display: inline-block; margin-top: 10px;">
                         <input class="form-control input" type="text" name="source-csv-path"
-                               id="source-csv-path" placeholder="Source CSV Path" style="width: 75%; display: inline-block;"/>
+                               id="source-csv-path" placeholder="Source CSV Path"
+                               style="width: 75%; display: inline-block;"/>
                         <input class="form-control input" type="text" name="source-csv-delimiter"
-                               id="source-csv-delimiter" placeholder="Delimiter" style="width: 23%; float:right; display: inline-block;"
-                               onkeypress="this.value=''"/>
+                               id="source-csv-delimiter" placeholder="Delimiter"
+                               style="width: 23%; float:right; display: inline-block;"
+                               onkeypress="this.value = ''"/>
                     </div>
                 </div>
             </div>
@@ -97,6 +101,7 @@
                 <div class="box-body">
                     <div class="form-group">
                         <label>Field Name:</label>
+
                         <div class="input-group">
                             <input type="text" class="form-control pull-right" id="field-name@"
                                    name="field-name@"/>
@@ -142,8 +147,9 @@
                                 <label style="width:5%; text-align:center; margin-top:5px; font-size:initial;">-</label>
                                 <input type="text" class="form-control" id="date-range-end@" name="date-range-end@"
                                        style="width: 30%; display: inline-block; float: initial;"/>
-                                <label style="width:5%; text-align:center; margin-top:5px; font-size:initial;">&nbsp;</label>
-                                <input type="text" class="form-control" id="date-range-format@" name="date-range-format@"
+                                %{--<label style="width:5%; text-align:center; margin-top:5px; font-size:initial;">&nbsp;</label>--}%
+                                <input type="text" class="form-control" id="date-range-format@"
+                                       name="date-range-format@"
                                        style="width: 30%; float: right" value="yyyy-dd-MM"/>
                             </div>
                         </div>
@@ -174,12 +180,17 @@
                     <!-- /.form group -->
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="checkbox" class="chkbox" id="chk-unique@" name="chk-unique@"
-                                   style="margin-top: -2px">
-                            <label for="chk-unique@" class="chkbox-label">Unique</label>
-                            <input type="checkbox" class="chkbox" id="chk-autoincrement@"
-                                   name="chk-autoincrement@">
-                            <label for="chk-autoincrement@" class="chkbox-label">Autoincrement</label>
+                            <div id="chk-unique-wrapper@" style="margin-top: 5px; width:40%; float:left;">
+                                <input type="checkbox" class="chkbox" id="chk-unique@" name="chk-unique@">
+                                <label for="chk-unique@" class="chkbox-label">Unique</label>
+                            </div>
+
+                            <div id="chk-autoincrement-wrapper@" style="margin-top: 5px; width:55%; float:right;"
+                                 class="invisible">
+                                <input type="checkbox" class="chkbox" id="chk-autoincrement@"
+                                       name="chk-autoincrement@" disabled="true">
+                                <label for="chk-autoincrement@" class="chkbox-label">Autoincrement</label>
+                            </div>
                         </div>
                         <!-- /.input group -->
                     </div>

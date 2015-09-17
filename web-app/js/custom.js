@@ -83,16 +83,39 @@ function attachSelectPickerChangeEvent(sno) {
             $("#date-group" + sno).addClass("invisible");
             $("#source-group" + sno).removeClass("invisible");
 
+            $('#chk-autoincrement' + sno).prop( "disabled", true );
+            $('#chk-autoincrement-wrapper' + sno).addClass("invisible");
+            $('#chk-unique' + sno).prop( "disabled", false );
+            $('#chk-unique-wrapper' + sno).removeClass("invisible");
+
         } else if (selectedType == 'Date') {
             $("#range-group" + sno).addClass("invisible");
             $("#date-group" + sno).removeClass("invisible");
             $("#source-group" + sno).addClass("invisible");
 
-        } else {
+            $('#chk-autoincrement' + sno).prop( "disabled", true );
+            $('#chk-autoincrement-wrapper' + sno).addClass("invisible");
+            $('#chk-unique' + sno).prop( "disabled", true );
+            $('#chk-unique-wrapper' + sno).addClass("invisible");
+
+        } else if (selectedType == 'Integer') {
             $("#range-group" + sno).removeClass("invisible");
             $("#date-group" + sno).addClass("invisible");
             $("#source-group" + sno).addClass("invisible");
 
+            $('#chk-autoincrement' + sno).prop( "disabled", false );
+            $('#chk-autoincrement-wrapper' + sno).removeClass("invisible");
+            $('#chk-unique' + sno).prop( "disabled", false );
+            $('#chk-unique-wrapper' + sno).removeClass("invisible");
+        } else if (selectedType == 'Float') {
+            $("#range-group" + sno).removeClass("invisible");
+            $("#date-group" + sno).addClass("invisible");
+            $("#source-group" + sno).addClass("invisible");
+
+            $('#chk-autoincrement' + sno).prop( "disabled", true );
+            $('#chk-autoincrement-wrapper' + sno).addClass("invisible");
+            $('#chk-unique' + sno).prop( "disabled", true );
+            $('#chk-unique-wrapper' + sno).addClass("invisible");
         }
 
     });
