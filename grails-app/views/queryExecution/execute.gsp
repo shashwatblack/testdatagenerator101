@@ -42,14 +42,14 @@
 
         <div class="row" style="margin-bottom: 20px">
             <form onsubmit="executeButtonClicked();
-            return false;">
+            return false;">v
                 <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2
                     col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-1" align="center" style="padding-right: 0px">
                     <div class="input-group" style="width:100%">
                         <g:textField class="input-sm" style="width:80%; text-indent:0%"
                                      name="queryInput" id="queryInput" value="${defaultQuery}"
                                      autofocus="autofocus" onfocus="this.value = this.value;"/>
-                        <g:textField class="input-sm" style="width:18%; text-indent:0%; margin-left:2%"
+                        <g:textField class="input-sm" style="width:18%; text-indent:0%; margin-left:1%"
                                      name="numDataInput" id="numDataInput" value="${defaultNumData}" type="number"/>
                     </div>
                 </div>
