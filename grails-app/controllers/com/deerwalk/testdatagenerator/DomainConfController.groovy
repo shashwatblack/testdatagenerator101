@@ -6,12 +6,14 @@ import com.google.gson.JsonElement
 import com.google.gson.JsonParser
 import com.major.antlrTest.domainConfiguration.Utils
 import grails.converters.JSON
+import groovy.io.FileType
 import org.json.simple.JSONArray
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 
 class DomainConfController {
 
+    def INPUTDIRPATH = "src/main/resources/input/"
     def index() {
         redirect(action: 'add', params:[saveSuccess: "false"])
     }
@@ -19,7 +21,20 @@ class DomainConfController {
     def add(String saveSuccess) {
         Utils utils = new Utils()
         List<String> domainNameList = utils.domainNameList
-        [domainNameList: domainNameList, defaultDomain: domainNameList[0], saveSuccess: saveSuccess]
+        //////////////////////
+        def inputDir = new File(INPUTDIRPATH)
+        List<String> sourcePathFiles = new ArrayList<>();
+        inputDir.eachFileRecurse (FileType.FILES) { file ->
+            // read current file in iteration
+            // if file is hidden, continue
+            if (!file.isHidden()) {
+                sourcePathFiles.add(file.name)
+            }
+        }
+
+        //////////////////////
+        [domainNameList: domainNameList, defaultDomain: domainNameList[0],
+         saveSuccess: saveSuccess, sourcePathFiles: sourcePathFiles]
     }
 
     def addNewDomain(String domainName, String outputDelimiter) {
@@ -104,7 +119,10 @@ class DomainConfController {
 
                     if (params.get("field-data-type" + fieldCounter) == "string") {
                         JSONObject sourceObject = new JSONObject()
-                        sourceObject.put(params.get("source-type" + fieldCounter), params.get("source" + fieldCounter))
+                        if (params.get("source-type"+fieldCounter) == "path")
+                            sourceObject.put(params.get("source-type" + fieldCounter), INPUTDIRPATH + params.get("source" + fieldCounter))
+                        else
+                            sourceObject.put(params.get("source-type" + fieldCounter), params.get("source" + fieldCounter))
                         field.put("source", sourceObject)
                     }
                     else if (params.get("field-data-type" + fieldCounter) == "date") {

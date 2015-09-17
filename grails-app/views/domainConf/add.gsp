@@ -38,6 +38,14 @@
     }
 </script>
 
+%{-- SOURCE PATH FILES --}%
+<datalist id="sourcePathFiles">
+    <g:each in="${sourcePathFiles}" var="pathFile">
+        <option value="${pathFile}">
+    </g:each>
+</datalist>
+%{-- ----------------- --}%
+
 <div id="page-body" style="min-height: 70%; margin-top:30px; margin-bottom:15px;">
 <div class="container">
 <form action="saveDomainConf" method="POST">
@@ -76,21 +84,21 @@
                 <div class="box-header form-group" style="margin: 0">
                     <div style="width: 60%; display: inline-block;">
                         <input class="form-control input input-lg" type="text" name="table-name"
-                               id="table-name" placeholder="Table Name"/>
+                               id="table-name" autocomplete="off" placeholder="Table Name"/>
                     </div>
 
                     <div style="width: 60%; display: inline-block; margin-top: 10px;">
                         <input class="form-control input" type="text" name="dependency-table"
-                               id="dependency-table" placeholder="Dependency Table Name"/>
+                               id="dependency-table" autocomplete="off" placeholder="Dependency Table Name"/>
                     </div>
 
                     <div style="width: 60%; display: inline-block; margin-top: 10px;">
                         <input class="form-control input" type="text" name="source-csv-path"
                                id="source-csv-path" placeholder="Source CSV Path"
-                               style="width: 75%; display: inline-block;"/>
+                               autocomplete="off" style="width: 75%; display: inline-block;"/>
                         <input class="form-control input" type="text" name="source-csv-delimiter"
                                id="source-csv-delimiter" placeholder="Delimiter"
-                               style="width: 23%; float:right; display: inline-block;"
+                               autocomplete="off" style="width: 23%; float:right; display: inline-block;"
                                onkeypress="this.value = ''"/>
                     </div>
                 </div>
@@ -104,7 +112,7 @@
 
                         <div class="input-group">
                             <input type="text" class="form-control pull-right" id="field-name@"
-                                   name="field-name@"/>
+                                   autocomplete="off" name="field-name@"/>
                         </div>
                         <!-- /.input group -->
                     </div>
@@ -169,9 +177,10 @@
                                     <option value="index">Index</option>
                                 </select>
                             </div>
-
                             <div class="pull-right" style="width: 68%;">
-                                <input class="form-control" type="text" id="source@" name="source@"/>
+                                <input class="form-control" type="text" id="source@" name="source@"
+                                       autocomplete="off" list=""/>
+
                             </div>
 
                         </div>

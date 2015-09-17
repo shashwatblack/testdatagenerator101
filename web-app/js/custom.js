@@ -119,7 +119,17 @@ function attachSelectPickerChangeEvent(sno) {
         }
 
     });
-//
+
+    $("#source-type" + sno).change(function (event) {
+
+        var selectedType = ($("#source-type" + sno + " option:selected").text());
+        if (selectedType == 'Path') {
+            $("#source" + sno).attr("list", "sourcePathFiles");
+        } else {
+            $("#source" + sno).attr("list", "");
+        }
+
+    });
 //    $("#source-type" + sno).change(function (event) {
 //
 //        var selectedType = ($("#source-type" + sno + " option:selected").text());
