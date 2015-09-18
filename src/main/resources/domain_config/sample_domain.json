@@ -1,5 +1,5 @@
 {
-    "output_delimiter": "%",
+    "output_delimiter": ",",
     "tables": [
         {
             "name": "table_name1",
@@ -24,8 +24,8 @@
                     "field_name": "id",
                     "type": "integer",
                     "autoincrement": "true",
-                    "lower_range": "4",
-                    "upper_range": "125"
+                    "lower_range": "1",
+                    "upper_range": "5000"
                 },
                 {
                     "field_name": "caste",
@@ -89,7 +89,7 @@
                     "type": "integer",
                     "autoincrement": "true",
                     "lower_range": "1",
-                    "upper_range": "125",
+                    "upper_range": "10000",
                     "unique": "true"
                 },
                 {
