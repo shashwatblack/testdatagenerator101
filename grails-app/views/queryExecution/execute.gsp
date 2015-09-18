@@ -42,7 +42,7 @@
 
         <div class="row" style="margin-bottom: 20px">
             <form onsubmit="executeButtonClicked();
-            return false;">v
+            return false;">
                 <div class="col-lg-6 col-lg-offset-2 col-md-6 col-md-offset-2
                     col-sm-8 col-sm-offset-1 col-xs-8 col-xs-offset-1" align="center" style="padding-right: 0px">
                     <div class="input-group" style="width:100%">
