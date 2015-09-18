@@ -30,7 +30,19 @@ class BlindingDataController {
         [fileResourceInstance: fileResourceInstance, outputContent: outputContent, blindingContent: blindingContent ]
     }
 
+
     def upload() {
+        //this delete all previous files in the blinder-->> input,jsonFormat and output dir.
+        new File("src/main/resources/blinder/input").eachFileMatch(~/.*.csv/) { file ->
+            file.delete()
+        }
+        new File("src/main/resources/blinder/jsonFormat").eachFileMatch(~/.*.json/) { file ->
+            file.delete()
+        }
+        new File("src/main/resources/blinder/output").eachFileMatch(~/.*.csv/) { file ->
+            file.delete()
+        }
+
         def f = request.getFile('fileUpload')
         if(!f.empty) {
             flash.message = 'Your file has been uploaded'

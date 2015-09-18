@@ -23,6 +23,24 @@
     <script src="../web-plugins/iCheck/icheck.js"></script>
     <script src="../web-plugins/toastr/toastr.js"></script>
     <script src="../js/custom.js"></script>
+
+    //this is hide and show function.
+    <script>
+        $(document).ready(function(){
+            $("#blindingForm").show();
+            $("#blindingTable").hide();
+
+            $("#uploadFile").click(function(){
+                $("#blindingForm").hide();
+                $("#blindingTable").show();
+            });
+
+            $("#deleteFile").click(function(){
+                $("#blindingForm").show();
+                $("#blindingTable").hide();
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -31,7 +49,7 @@
 
     <label>Upload File</label>
 
-    <g:form method="post"  enctype="multipart/form-data">
+    <g:form method="post" id="bliindingForm" enctype="multipart/form-data">
         <div class="dialog">
             <table class="table table-bordered" style="border-width: 3px; border-bottom-color: dodgerblue; border-top-color: dodgerblue ">
                 <tbody>
@@ -40,7 +58,7 @@
                         <input type="file" id="fileUpload" name="fileUpload" />
                     </td>
                     <td>
-                        <g:actionSubmit class="btn btn-primary" value="UPLOAD" action="upload"/>
+                        <g:actionSubmit class="btn btn-primary" id="uploadFile" value="UPLOAD" action="upload"/>
                     </td>
                 </tr>
                 </tbody>
@@ -51,7 +69,7 @@
     <div class="message">${flash.message}</div>
     <div id="success"></div>
 
-    <div class="box box-primary" >
+    <div class="box box-primary" id="blindingTable">
         <label>Data to blind</label>
         <table class="table table-bordered">
 
@@ -70,11 +88,11 @@
             <g:if test="${fileResourceInstance != null}">
                 %{--<g:while test="${i < fileResourceInstance.size()}">--}%
                     <tr>
-                        <td>${fileResourceInstance}</td>
-                        <td><button type="button" class="btn btn-primary glyphicon-pencil btn-lg" data-toggle="modal" data-target="#myModal">View Blinder Logic </button></td>
-                        <td><button type="button" class="btn btn-success glyphicon glyphicon-thumbs-up"><g:link action="functionBlind" params='[fileName:"${fileResourceInstance}"]'>   BLIND   </g:link></button></td>
-                        <td><button type="button" class="btn btn-primary glyphicon-download"><g:link action="download" params='[fileName:"${fileResourceInstance}"]' >Download Output</g:link></button></td>
-                        <td><button class="btn btn-danger glyphicon-remove"><g:link action="deleteUploadFile"  params='[fileName:"${fileResourceInstance}"]' > delete </g:link></button></td>
+                        <td style="width: 20%">${fileResourceInstance}</td>
+                        <td style="width: 20%"><button type="button" class="btn btn-primary glyphicon-pencil" style="width:75%; margin-right: 3%;" data-toggle="modal" data-target="#myModal"> VIEW </button></td>
+                        <td style="width: 20%"><button type="button" class="btn btn-success glyphicon glyphicon-thumbs-up" style="width:75%; margin-right: 3%;"><g:link action="functionBlind" params='[fileName:"${fileResourceInstance}"]'><font color="white">  BLIND  </font></g:link></button></td>
+                        <td style="width: 20%"><button type="button" class="btn btn-warning glyphicon-download" style="width:75%; margin-right: 3%;"><g:link action="download" params='[fileName:"${fileResourceInstance}"]' ><font color="white">OUTPUT</font></g:link></button></td>
+                        <td style="width: 20%"><button type="button" class="btn btn-danger glyphicon-remove" id="deleteFile" style="width:75%; margin-right: 3%;"><g:link action="deleteUploadFile"  params='[fileName:"${fileResourceInstance}"]' ><font color="white"> DELETE </font></g:link></button></td>
                     </tr>
                     %{--<% i++ %>--}%
                 %{--</g:while>--}%
