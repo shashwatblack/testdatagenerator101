@@ -49,7 +49,7 @@
                         <g:textField class="input-sm" style="width:80%; text-indent:0%"
                                      name="queryInput" id="queryInput" value="${defaultQuery}"
                                      autofocus="autofocus" onfocus="this.value = this.value;"/>
-                        <g:textField class="input-sm" style="width:18%; text-indent:0%; margin-left:2%"
+                        <g:textField class="input-sm" style="width:18%; text-indent:0%; margin-left:1%"
                                      name="numDataInput" id="numDataInput" value="${defaultNumData}" type="number"/>
                     </div>
                 </div>
