@@ -25,22 +25,22 @@
     <script src="../js/custom.js"></script>
 
     //this is hide and show function.
-    <script>
-        $(document).ready(function(){
-            $("#blindingForm").show();
-            $("#blindingTable").hide();
+    %{--<script>--}%
+        %{--$(document).ready(function(){--}%
+            %{--$("#blindingForm").show();--}%
+            %{--$("#blindingTable").hide();--}%
 
-            $("#uploadFile").click(function(){
-                $("#blindingForm").hide();
-                $("#blindingTable").show();
-            });
+            %{--$("#uploadFile").click(function(){--}%
+                %{--$("#blindingForm").hide();--}%
+                %{--$("#blindingTable").show();--}%
+            %{--});--}%
 
-            $("#deleteFile").click(function(){
-                $("#blindingForm").show();
-                $("#blindingTable").hide();
-            });
-        });
-    </script>
+            %{--$("#deleteFile").click(function(){--}%
+                %{--$("#blindingForm").show();--}%
+                %{--$("#blindingTable").hide();--}%
+            %{--});--}%
+        %{--});--}%
+    %{--</script>--}%
 </head>
 
 <body>
@@ -51,10 +51,10 @@
 
     <g:form method="post" id="bliindingForm" enctype="multipart/form-data">
         <div class="dialog">
-            <table class="table table-bordered" style="border-width: 3px; border-bottom-color: dodgerblue; border-top-color: dodgerblue ">
+            <table class="table table-bordered" style="padding: 40px; background-color: white; border-width: 3px; border-bottom-color: dodgerblue; border-top-color: dodgerblue ">
                 <tbody>
-                <tr class="prop">
-                    <td valign="top" class="value ${hasErrors(bean:fileResourceInstance,field:'upload','errors')}">
+                <tr class="prop" style="padding: 20px">
+                    <td valign="top" style="vertical-align: middle" class="value ${hasErrors(bean:fileResourceInstance,field:'upload','errors')}">
                         <input type="file" id="fileUpload" name="fileUpload" />
                     </td>
                     <td>
@@ -69,7 +69,7 @@
     <div class="message">${flash.message}</div>
     <div id="success"></div>
 
-    <div class="box box-primary" id="blindingTable">
+    <div class="box box-primary" id="blindingTable" style="padding: 20px">
         <label>Data to blind</label>
         <table class="table table-bordered">
 
@@ -89,8 +89,18 @@
                 %{--<g:while test="${i < fileResourceInstance.size()}">--}%
                     <tr>
                         <td style="width: 20%">${fileResourceInstance}</td>
-                        <td style="width: 20%"><button type="button" class="btn btn-primary glyphicon-pencil" style="width:75%; margin-right: 3%;" data-toggle="modal" data-target="#myModal"> VIEW </button></td>
-                        <td style="width: 20%"><button type="button" class="btn btn-success glyphicon glyphicon-thumbs-up" style="width:75%; margin-right: 3%;"><g:link action="functionBlind" params='[fileName:"${fileResourceInstance}"]'><font color="white">  BLIND  </font></g:link></button></td>
+                        <td style="width: 20%">
+                            <button type="button" class="btn btn-primary glyphicon-pencil" style="width:75%; margin-right: 3%;" data-toggle="modal" data-target="#myModal">
+                                VIEW
+                            </button>
+                        </td>
+                        <td style="width: 20%">
+                            <button type="button" class="btn btn-success glyphicon-thumbs-up" style="width:75%; margin-right: 3%;">
+                                <g:link action="functionBlind" params='[fileName:"${fileResourceInstance}"]'>
+                                    <span style="color: white">  BLIND  </span>
+                                </g:link>
+                            </button>
+                        </td>
                         <td style="width: 20%"><button type="button" class="btn btn-warning glyphicon-download" style="width:75%; margin-right: 3%;"><g:link action="download" params='[fileName:"${fileResourceInstance}"]' ><font color="white">OUTPUT</font></g:link></button></td>
                         <td style="width: 20%"><button type="button" class="btn btn-danger glyphicon-remove" id="deleteFile" style="width:75%; margin-right: 3%;"><g:link action="deleteUploadFile"  params='[fileName:"${fileResourceInstance}"]' ><font color="white"> DELETE </font></g:link></button></td>
                     </tr>
