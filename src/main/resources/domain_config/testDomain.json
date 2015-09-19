@@ -1,0 +1,35 @@
+{
+  "tables": [
+    {
+      "dependency": "",
+      "source": {
+        "delimiter": "",
+        "path": "src/main/resources/input/table/"
+      },
+      "name": "table1",
+      "fields": [
+        {
+          "autoincrement": "true",
+          "field_name": "id",
+          "lower_range": "1",
+          "upper_range": "10000",
+          "type": "integer"
+        },
+        {
+          "field_name": "name",
+          "source": {
+            "array": "amit,ashish,binod,bipin,shashwat"
+          },
+          "type": "string"
+        },
+        {
+          "field_name": "salary",
+          "lower_range": "1000",
+          "upper_range": "100000",
+          "type": "float"
+        }
+      ]
+    }
+  ],
+  "output_delimiter": ","
+}
