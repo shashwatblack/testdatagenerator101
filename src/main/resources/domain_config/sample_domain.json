@@ -38,7 +38,7 @@
           "field_name": "Address",
           "type": "String",
           "source": {
-            "path": "src/main/resources/address.csv"
+            "path": "src/main/resources/input/field/address.csv"
           }
         },
         {
@@ -60,7 +60,7 @@
     {
       "name": "table2",
       "source": {
-        "path": "src/main/resources/input/table_nam2SourceFile.csv",
+        "path": "src/main/resources/input/table/table_nam2SourceFile.csv",
         "delimiter": ";"
       },
       "fields": [
@@ -110,7 +110,7 @@
     {
       "name": "table3",
       "source": {
-        "path": "src/main/resources/input/table_nam3SourceFile.csv",
+        "path": "src/main/resources/input/table/table_nam3SourceFile.csv",
         "delimiter": ","
       },
       "dependency": "table_name2",
@@ -134,7 +134,7 @@
           "field_name": "Address",
           "type": "String",
           "source": {
-            "path": "src/main/resources/address.csv"
+            "path": "src/main/resources/input/field/address.csv"
           }
         },
         {
